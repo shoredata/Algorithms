@@ -28,8 +28,36 @@ function string_inorder_subsets(string) {
 var stest = "aabcdaabc";
 var substrings = string_inorder_subsets(stest);
 console.log(substrings.length + " results:");
-for (str  of substrings)
-    console.log(str);
+var icount=0;
+for (str  of substrings){
+    icount++;
+    console.log(icount, str);
+}
 
 console.log(substrings.length + " results ^^^^");
+
+
+
+var s1 = "abca";
+var s2 = string_inorder_subsets(s1);
+console.log(s2.length + " results:");
+var i2=0;
+for (str  of s2){
+    i2++;
+    console.log(i2, str);
+}
+
+console.log(s2.length + " results ^^^^");
+
+
+s1 = "abcd";
+s2 = string_inorder_subsets(s1);
+console.log(s2.length + " results:");
+i2=0;
+for (str  of s2){
+    i2++;
+    console.log(i2, str);
+}
+
+console.log(s2.length + " results ^^^^");
 
