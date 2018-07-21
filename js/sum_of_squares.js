@@ -11,3 +11,5 @@ function sum_squares(n, val=1, sum=0){
 
 var n1= 10;
 console.log(sum_squares(n1));
+
+
