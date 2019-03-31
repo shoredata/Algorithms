@@ -51,37 +51,47 @@ function GetLargestArrayElement(x){
 console.log(GetLargestArrayElement([1,30,5,7]));
 
 
-DoubleUp(arr)
-RemoveDup(arr)
+//RemoveDup(arr)
   // *InPlace
   // *Time of O(n)
-
-
-PopFront(arr)
-PushFront(arr,val)
-RemoveAt(arr,index)
-InsertAt(arr,index,val)
-
-
-function SquareEachArrayValue(arr){
-  for (var idx=0; idx< arr.length; idx++) {
-    arr[idx] *= arr[idx];
-  }
-   return arr;
+Function RemveDuplicatesFromArray(arr) {
+    var setnodupes = new Set(); 
+    var length = 0;
+    for(var i=1; i<x.length; i++) {
+        length = setnodupes.entries;
+        setnodupes.Add(x[i]);
+        if (length == setnodupes.entries) {
+            RemoveArrayItem(arr,i); //in place
+        }
+    }
+    return arr;
 }
-console.log(SquareEachArrayValue([1,2,3]));
-console.log(SquareEachArrayValue([2,5,8]));
+
+function PushFront(arr,val) {
+    InsertItemInArrayAtPosition(arr,0,val);
+}
+function RemoveArrayItem(arr,index) {
+    RemoveArrayItemsInPlace(arr, index, 1);
+}
+function PopFront(arr) {
+    RemoveArrayItemsInPlace(arr, 1, 1);
+}
+function InsertItemInArrayAtPosition(arr,index,val){
+    arr.push(0);
+    for (var idx=x.length-1; idx>index; idx--) {
+        arr[idx]=arr[idx-1];
+    }
+    arr[index] = val;
+}
 
 
 function GetArrayMin(x){
-    if (x.length==0)
-    {
+    if (x.length==0) {
         return 0;
     }
     min = x[0];
     for(var i=1; i<x.length; i++) {
-        if (min > x[i])
-        {
+        if (min > x[i]) {
             min = x[i];
         }
     }
@@ -90,14 +100,12 @@ function GetArrayMin(x){
 console.log(GetArrayMin([1,2,3]));
 
 function GetArrayMax(x){
-    if (x.length==0)
-    {
+    if (x.length==0) {
         return 0;
     }
     maxs = x[0];
     for(var i=1; i<x.length; i++) {
-        if (max > x[i])
-        {
+        if (max < x[i]) {
             max = x[i];
         }
     }
@@ -115,8 +123,7 @@ function GetArraySum(x){
 console.log(GetArraySum([1,2,3]));
 
 function GetArrayAverage(x){
-    if (x.length==0)
-    {
+    if (x.length==0) {
         return 0;
     }
     sum = 0;
@@ -210,9 +217,42 @@ function ReverseArray(arr) {
 console.log(ReverseArray([1,2,3])); //[3,2,1]
 
 
+DoubleUp(arr)
+//a. repeat in place, below
+//b. mult each by 2
+//c. square
+
+//a.
 function RepeatArraysItemsInPlace(arr) {
+  var newarr = [];
+  for (var idx=0; idx<arr.length; idx++) {
+    newarr.push(arr[idx]);
+    newarr.push(arr[idx]);
+  }
+  return newarr;
 }
 console.log(RepeatArraysItemsInPlace(['a',1,"Bob"])); //['a','a',1,1,"Bob","Bob"]
+
+//b. 
+function DoubleEachArrayValue(arr){
+  for (var idx=0; idx< arr.length; idx++) {
+    arr[idx] *= 2;
+  }
+   return arr;
+}
+console.log(DoubleEachArrayValue([1,2,3]));
+console.log(DoubleEachArrayValue([2,5,8]));
+
+//c.
+function SquareEachArrayValue(arr){
+  for (var idx=0; idx< arr.length; idx++) {
+    arr[idx] *= arr[idx];
+  }
+   return arr;
+}
+console.log(SquareEachArrayValue([1,2,3]));
+console.log(SquareEachArrayValue([2,5,8]));
+
 
 
 
