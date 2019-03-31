@@ -16,11 +16,11 @@ function pauseBrowser(millis) {
 
 
 function tarai(x,y,z) {
-	// counter+=1;
-	if (x<=y) {
-		return y;
-	}
-	return tarai(tarai(x-1,y,z),tarai(y-1,z,x),tarai(z-1,x,y)); 
+    // counter+=1;
+    if (x<=y) {
+        return y;
+    }
+    return tarai(tarai(x-1,y,z),tarai(y-1,z,x),tarai(z-1,x,y)); 
 }
 
 console.log(10,2,9,tarai(10,2,9));

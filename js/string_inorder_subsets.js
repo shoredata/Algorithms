@@ -2,9 +2,9 @@
 
 function string_inorder_subsets(string) {
 
-	// base
+    // base
     if (string.length < 2) 
-    	return string;
+        return string;
  
     var results = []; 
 
