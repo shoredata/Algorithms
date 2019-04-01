@@ -1,6 +1,9 @@
+// https://repl.it/@bearfish47x/JS-Algorithms-Web-Fundamentals
+
 // INTEGERS
 // ============================================================================
 
+console.log("1. ");
 function PrintPositiveUpToInteger(x){
   var breturn = true;
   if (x<0)
@@ -20,71 +23,89 @@ function PrintPositiveUpToInteger(x){
   }
   return breturn;
 }
-console.log(PrintPositiveUpToInteger(10));
-console.log(PrintPositiveUpToInteger(0));
-console.log(PrintPositiveUpToInteger(-7));
+console.log(10, true, ":", PrintPositiveUpToInteger(10));
+console.log(0, false, ":", PrintPositiveUpToInteger(0));
+console.log(-7, false, ":", PrintPositiveUpToInteger(-7));
+console.log("");
 
-
+console.log("2. ");
 function PrintSumToInteger(x){
   sum = 0;
   for (var idx=0; idx<=x; idx++){
     sum+=idx;
-    console.log(idx + " " + sum);
+    // console.log(idx + " " + sum);
   }
   return sum
 }
-console.log(PrintSumToInteger(255)); //3285
+console.log(32640, ":", PrintSumToInteger(255)); //32640
+console.log("");
 
 
 // ARRAYS
 // ============================================================================
 
+console.log("3. ");
 function GetLargestArrayElement(x){
   var max = x[0];
   for(var i=1; i<x.length; i++) {
-    if (max<x[i]){
+    if (max < x[i]){
       max = x[i];
     }
   }
   return max;
 }
-console.log(GetLargestArrayElement([1,30,5,7]));
+console.log(30, ":", GetLargestArrayElement([1,30,5,7]));
+console.log("");
 
 
+console.log("4. ");
 //RemoveDup(arr)
   // *InPlace
   // *Time of O(n)
-Function RemveDuplicatesFromArray(arr) {
+function RemoveDuplicatesFromArray(arr) {
     var setnodupes = new Set(); 
-    for(var i=1; i<x.length; i++) {
-        if (!setnodupes.has(x[i]) {
-            setnodupes.Add(x[i]);
+    var arrremove = [];
+    for(var i=0; i<arr.length; i++) {
+        if (setnodupes.has(arr[i])) {
+          arrremove.push(i);
         }
         else {
-            RemoveArrayItem(arr,i); //in place
+          setnodupes.add(arr[i]);
         }
+    }
+    for(var i=0; i<arrremove.length; i++) {
+      RemoveArrayItemsInPlace(arr, arrremove[i],arrremove[i]);
     }
     return arr;
 }
+console.log([1,7,30,5], ":", RemoveDuplicatesFromArray([1,7, 30,5,7,1,7]));
+console.log([1,7], ":", RemoveDuplicatesFromArray([1,7]));
+console.log([1,7], ":", RemoveDuplicatesFromArray([1,7,1,1,1,]));
+console.log([], ":", RemoveDuplicatesFromArray([]));
+console.log("");
 
+
+console.log("5. ");
 function PushFront(arr,val) {
     InsertItemInArrayAtPosition(arr,0,val);
+    return arr;
 }
-function RemoveArrayItem(arr,index) {
-    RemoveArrayItemsInPlace(arr, index, 1);
-}
-function PopFront(arr) {
-    RemoveArrayItemsInPlace(arr, 1, 1);
-}
+console.log([1,30,5,7], ":", PushFront([30,5,7], 1));
+console.log("");
+
+console.log("8. ");
 function InsertItemInArrayAtPosition(arr,index,val){
     arr.push(0);
-    for (var idx=x.length-1; idx>index; idx--) {
+    for (var idx=arr.length-1; idx>index; idx--) {
         arr[idx]=arr[idx-1];
     }
     arr[index] = val;
+    return arr;
 }
+console.log([0,1,2,30,5,7], ":", InsertItemInArrayAtPosition([0,1,30,5,7],2,2));
+console.log("");
 
-
+console.log("9. ");
 function GetArrayMin(x){
     if (x.length==0) {
         return 0;
@@ -97,13 +118,15 @@ function GetArrayMin(x){
     }
     return min;
 }
-console.log(GetArrayMin([1,2,3]));
+console.log(1, ":", GetArrayMin([1,2,3]));
+console.log("");
 
+console.log("10. ");
 function GetArrayMax(x){
     if (x.length==0) {
         return 0;
     }
-    maxs = x[0];
+    var max = x[0];
     for(var i=1; i<x.length; i++) {
         if (max < x[i]) {
             max = x[i];
@@ -111,17 +134,21 @@ function GetArrayMax(x){
     }
     return max;
 }
-console.log(GetArrayMax([1,2,3]));
+console.log(3, ":", GetArrayMax([1,2,3]));
+console.log("");
 
+console.log("11. ");
 function GetArraySum(x){
-  sum = 0;
+  var sum = 0;
   for(var i=0; i<x.length; i++) {
     sum += x[i];
   }
   return sum;
 }
-console.log(GetArraySum([1,2,3]));
+console.log(6, ":", GetArraySum([1,2,3]));
+console.log("");
 
+console.log("12. ");
 function GetArrayAverage(x){
     if (x.length==0) {
         return 0;
@@ -132,10 +159,11 @@ function GetArrayAverage(x){
     }
     return sum/x.length;
 }
-console.log(GetArrayAverage([1,2,3]));
-console.log(GetArrayAverage([2,5,8]));
+console.log(2, ":", GetArrayAverage([1,2,3]));
+console.log(5,":",  GetArrayAverage([2,5,8]));
+console.log("");
 
-
+console.log("13. ");
 function ZipArrays(arr1, arr2) {
     var newobj = {};
     for (var i=0; i<arr1.length; i++) {
@@ -145,25 +173,30 @@ function ZipArrays(arr1, arr2) {
 }
 testa = ['fruit', 'veg', 'meat']
 testb = ['apple', 'tomato', 'beef']
-console.log(testa + " + " + testb + " ==> ")
+console.log(testa + " + " + testb + ":" )
 console.dir(ZipArrays(testa,testb))
+console.log("");
 
 
+console.log("14. ");
 function CountAndPrintGreater(arr, y) {
   var icount = 0;
-  for (var idx =0; idx< arr.length; idx++) {
+  for (var idx =0; idx<arr.length; idx++) {
     if (arr[idx]>y) {
       icount++;
     }
   }
-  console.log(icount);
+  return icount;
 }
+console.log(3, ":", CountAndPrintGreater([1,2,3,4,5,6],3));
+console.log("");
 
 
+console.log("15. ");
 function ReplaceNegatives(arr) {
-  newarr = [];
+  var newarr = [];
   for (idx=0; idx<arr.length; idx++) {
-    if (arr<0) {
+    if (arr[idx]<0) {
       newarr.push(0);
     }
     else {
@@ -172,27 +205,55 @@ function ReplaceNegatives(arr) {
   }
   return newarr;
 }
-console.log(replaceNegatives( [1,2,-3,-5,5])); // [1,2,0,0,5]
+console.log([1,2,0,0,5],":", ReplaceNegatives( [1,2,-3,-5,5]));
+console.log("");
 
 
-function RemoveArrayValuesInPlace(arr, start, end) {
-  var imoved = 0;
-  var source = end+1;
-  while(source <= arr.length) {
-    if (source < arr.length) {
-      var target = source - end + start - 1;
-      arr[target] = arr[source];
-    }
-    imoved++;
-    source++;
+console.log("16. ");
+function RemoveArrayItemsInPlace(arr, start, end) {
+  // console.log(arr, start, end);
+  var isource = end + 1;
+  var itarget = start;
+  while(isource < arr.length) {
+    arr[itarget] = arr[isource];
+    isource++;
+    itarget++;
   }
-  for (var idx=0; idx<imoved; idx++) {
+  for (var idx=0; idx<end-start+1; idx++) {
     arr.pop();
   }
+  return arr;
 }
-console.log(RemoveArrayValuesInPlace([20,30,40,50,60,70],2,4)); //[20,30,70]
+console.log([30], ":", RemoveArrayItemsInPlace([20,30],0,0));
+console.log([20], ":", RemoveArrayItemsInPlace([20,30],1,1));
+console.log([], ":", RemoveArrayItemsInPlace([20,30],0,1));
+console.log([20,30,70], ":", RemoveArrayItemsInPlace([20,30,40,50,60,70],2,4));
+console.log([20,30,40], ":", RemoveArrayItemsInPlace([20,30,40,70],3,3));
+console.log("");
 
 
+console.log("16a. ");
+function RemoveArrayItem(arr,index) {
+    RemoveArrayItemsInPlace(arr, index, index);
+    return arr;
+}
+console.log([1,30,5,7], 1, ":", RemoveArrayItem([1,9,30,5,7], 1));
+console.log("");
+
+console.log("16b. ");
+function PopFront(arr) {
+    RemoveArrayItemsInPlace(arr, 0, 0);
+    return arr;
+}
+console.log([1,30,5,7], ":", PopFront([0,1,30,5,7]));
+console.log("");
+
+
+
+
+
+
+console.log("17. ");
 function MoveArrayForward(arr) {
   var newarr = [];
   for (var idx=0; idx<arr.length-1; idx++) {
@@ -201,20 +262,22 @@ function MoveArrayForward(arr) {
   newarr.push(0);
   return newarr;
 }
-console.log(MoveArrayForward([1,2,3])); //[2,3,0]
+console.log([2,3,0], ":", MoveArrayForward([1,2,3])); //[2,3,0]
+console.log("");
 
 
+console.log("18. ");
 function ReverseArray(arr) {
-  var newarr = arr.copy();
   for (var idx=0; idx<arr.length/2; idx++)
   {
-    var temp = newarr[idx];
-    newarr[idx] = newarr[newarr.length-idx];
-    newarr[newarr.length-idx] = temp;
+    var temp = arr[idx];
+    arr[idx] = arr[arr.length-idx-1]; //darn 0-based arrays
+    arr[arr.length-idx-1] = temp;
   }
-  return newarr;
+  return arr;
 }
-console.log(ReverseArray([1,2,3])); //[3,2,1]
+console.log([3,2,1], ":", ReverseArray([1,2,3]));
+console.log("");
 
 
 //DoubleUp(arr)
@@ -223,6 +286,8 @@ console.log(ReverseArray([1,2,3])); //[3,2,1]
 //c. square
 
 //a.
+
+console.log("19. ");
 function RepeatArraysItemsInPlace(arr) {
   var newarr = [];
   for (var idx=0; idx<arr.length; idx++) {
@@ -231,28 +296,34 @@ function RepeatArraysItemsInPlace(arr) {
   }
   return newarr;
 }
-console.log(RepeatArraysItemsInPlace(['a',1,"Bob"])); //['a','a',1,1,"Bob","Bob"]
+console.log(['a','a',1,1,"Bob","Bob"], ":", RepeatArraysItemsInPlace(['a',1,"Bob"])); //['a','a',1,1,"Bob","Bob"]
+console.log("");
 
 //b. 
+
+console.log("20. ");
 function DoubleEachArrayValue(arr){
   for (var idx=0; idx< arr.length; idx++) {
     arr[idx] *= 2;
   }
    return arr;
 }
-console.log(DoubleEachArrayValue([1,2,3]));
-console.log(DoubleEachArrayValue([2,5,8]));
+console.log([2,4,6], ":", DoubleEachArrayValue([1,2,3]));
+console.log([4,10,16], ":", DoubleEachArrayValue([2,5,8]));
+console.log("");
 
 //c.
+
+console.log("21. ");
 function SquareEachArrayValue(arr){
   for (var idx=0; idx< arr.length; idx++) {
     arr[idx] *= arr[idx];
   }
    return arr;
 }
-console.log(SquareEachArrayValue([1,2,3]));
-console.log(SquareEachArrayValue([2,5,8]));
-
+console.log([1,4,9], ":", SquareEachArrayValue([1,2,3]));
+console.log([4, 25, 64], ":", SquareEachArrayValue([2,5,8]));
+console.log("");
 
 
 
@@ -260,31 +331,35 @@ console.log(SquareEachArrayValue([2,5,8]));
 // ============================================================================
 
 function reverseString(str) {
-newstr = ""
-for (var idx = str.length-1; idx>=0; idx--) {
-  newstr += str[idx];
-}
-return newstr
+  newstr = ""
+  for (var idx = str.length-1; idx>=0; idx--) {
+    newstr += str[idx];
+  }
+  return newstr
 }
 function isPalindrome(str) {
-return reverseString(str)==str;
+  return reverseString(str)==str;
 }
 function isPalindrome2(str) {
-for (var i=0; i< Math.floor(str.length/2); i++) {
-  if (str[i] != str[str.length-1-i]) {
-    return false;
+  for (var i=0; i< Math.floor(str.length/2); i++) {
+    if (str[i] != str[str.length-1-i]) {
+      return false;
+    }
   }
+  return true;
 }
-return true;
-}
+
+console.log("22. ");
 test1 = "abba"
 test2="rabbit"
-console.log(test1 + " (strcopy)" + isPalindrome(test1))
-console.log(test2 + " (strcopy)" + isPalindrome(test2))
-console.log(test1 + " (inplace)" + isPalindrome2(test1))
-console.log(test2 + " (inplace)" + isPalindrome2(test2))
+console.log(true, ":", test1 + " (isPalindrome-strcopy) " + isPalindrome(test1))
+console.log(false, ":", test2 + " (isPalindrome-strcopy) " + isPalindrome(test2))
+console.log(true, ":", test1 + " (isPalindrome-inplace) " + isPalindrome2(test1))
+console.log(false, ":", test2 + " (isPalindrome-inplace) " + isPalindrome2(test2))
+console.log("");
 
 
+console.log("23. ");
 function SubString(str, start, length) {
   var retn = "";
   for (var i=start; i<start+length; i++) {
@@ -320,5 +395,5 @@ function CensorString(str,word) {
 }
 var source_string = "day.yad.Sunday is the shortest day of the week.day.d";
 var target_string = "day";
-console.log(source_string);
+console.log(source_string, ":");
 console.log(CensorString(source_string, target_string));
