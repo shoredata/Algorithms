@@ -29,6 +29,12 @@ var expect = require('chai').expect;
 
 // at promtp run "nodemon --exec mocha" in project folder to run tests
 
+// for pt3: needed to install js-yaml:  npm install -g js-yaml
+
+
+
+
+
 var FlickrFetcher;
 describe('FlickrFetcher', function() {
     it('should exist', function() {

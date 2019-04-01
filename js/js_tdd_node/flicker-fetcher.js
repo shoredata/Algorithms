@@ -51,4 +51,15 @@ FlickrFetcher = {
 
 };
 
-module.exports = FlickrFetcher;
+
+// The first thing I’ll do is wrap a conditional around the module.exports so that 
+//  the browser won’t throw an error if I just include the code in a web page. I 
+//  could, of course, use something like Browserify or Webpack to package these up 
+//  (and if you can, I highly recommend you do), but it’s nice to make them work 
+//  either way. If I just want to throw the code in something like CodePen, for 
+//  example, I’d prefer not to do a full Webpack setup:
+
+
+if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
+    module.exports = FlickrFetcher;
+}

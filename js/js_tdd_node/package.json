@@ -12,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
+    "js-yaml": "^3.13.0",
     "mocha": "^6.0.2"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2"
   }
 }
