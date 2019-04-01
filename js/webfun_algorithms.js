@@ -1,4 +1,6 @@
 // https://repl.it/@bearfish47x/JS-Algorithms-Web-Fundamentals
+// tests can be run at ^^^
+
 
 // INTEGERS
 // ============================================================================
@@ -250,9 +252,6 @@ console.log("");
 
 
 
-
-
-
 console.log("17. ");
 function MoveArrayForward(arr) {
   var newarr = [];
@@ -262,7 +261,7 @@ function MoveArrayForward(arr) {
   newarr.push(0);
   return newarr;
 }
-console.log([2,3,0], ":", MoveArrayForward([1,2,3])); //[2,3,0]
+console.log([2,3,0], ":", MoveArrayForward([1,2,3]));
 console.log("");
 
 
@@ -271,7 +270,7 @@ function ReverseArray(arr) {
   for (var idx=0; idx<arr.length/2; idx++)
   {
     var temp = arr[idx];
-    arr[idx] = arr[arr.length-idx-1]; //darn 0-based arrays
+    arr[idx] = arr[arr.length-idx-1];
     arr[arr.length-idx-1] = temp;
   }
   return arr;
@@ -327,7 +326,7 @@ console.log("");
 
 
 
- // STRINGS
+// STRINGS
 // ============================================================================
 
 function reverseString(str) {
