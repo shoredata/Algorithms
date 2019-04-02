@@ -1,19 +1,17 @@
+// https://repl.it/@bearfish47x/Javascript-Algorithms-Strings-v1
 
 
-
-
-
-function reverseString(str) {
+function ReverseString(str) {
   newstr = ""
   for (var idx = str.length-1; idx>=0; idx--) {
     newstr += str[idx];
   }
   return newstr
 }
-function isPalindrome(str) {
-  return reverseString(str)==str;
+function PalindromeTestStrCopy(str) {
+  return ReverseString(str)==str;
 }
-function isPalindrome2(str) {
+function PalindromeTestInPlace(str) {
   for (var i=0; i< Math.floor(str.length/2); i++) {
     if (str[i] != str[str.length-1-i]) {
       return false;
@@ -21,38 +19,22 @@ function isPalindrome2(str) {
   }
   return true;
 }
-
-console.log("22. ");
 test1 = "abba"
 test2="rabbit"
-console.log(true, ":", test1 + " (isPalindrome-strcopy) " + isPalindrome(test1))
-console.log(false, ":", test2 + " (isPalindrome-strcopy) " + isPalindrome(test2))
-console.log(true, ":", test1 + " (isPalindrome-inplace) " + isPalindrome2(test1))
-console.log(false, ":", test2 + " (isPalindrome-inplace) " + isPalindrome2(test2))
+console.log(true, "PalindromeTestStrCopy:", test1, PalindromeTestStrCopy(test1))
+console.log(false, "PalindromeTestStrCopy:", test2, PalindromeTestStrCopy(test2))
+console.log(true, "PalindromeTestInPlace:", test1, PalindromeTestInPlace(test1))
+console.log(false, "PalindromeTestInPlace:", test2, PalindromeTestInPlace(test2))
 console.log("");
 
 
-console.log("23. ");
-function SubString(str, start, length) {
-  var retn = "";
-  for (var i=start; i<start+length; i++) {
-    retn += str[i];    
-  }
-  // console.log(retn);
-  return retn;
-}
-function ChrString(count,char) {
+function GenerateStringOfChar(char, count) {
   var retn = "";
   for (var i=0; i<count; i++) {
     retn += char;    
   }
   return retn;
 }
-
-
-
-
-
 
 //string to word array
 //given string with words, space, tabs, lfs return array of words
@@ -63,6 +45,7 @@ function StringToWordArray(string) {
     return str;
 }
 StringToWordArray("Sentence doesn't not have a tab\t here.\nIt also has a newline, as well as several periods.");
+console.log("");
 
 // \b(\w+)'?(\w+)?\b g
 // /
@@ -90,31 +73,44 @@ function ReverseWordOrder(array){
     console.log(StringToWordArray(array).reverse());
 }
 ReverseWordOrder("Find a good string to test the StringToWordArray().reverse() functions on!");
+console.log("");
 
 function FindLongestWord(string){
     console.log("longest:", StringToWordArray(string).sort(function(a, b){return b.length - a.length})[0]);
 }
 FindLongestWord("Find a good string to test the StringToWordArray().reverse() functions on!");
+console.log("");
 
 
 function FindUniqueWords(string) {
     var arr = StringToWordArray(string);
     var ret = {};
     for (var str in arr) {
-        console.log("a", arr[str]);
+        // console.log("a", arr[str]);
         if (arr[str] in ret) {
-            console.log("a", arr[str], ret);
-
+            // console.log("a", arr[str], ret);
         } 
         else{
-            console.log("c", "need to add", arr[str]);
+            // console.log("c", "need to add", arr[str]);
             ret[arr[str]] = str;
         }
     }
     console.log(ret);
-    return str;
+    return ret;
 }
 FindUniqueWords("test test 1 2 3 a b c c hello, world.");
+console.log("");
+
+
+// function ReturnSubstring(str, start, length) {
+//   var retn = "";
+//   for (var i=start; i<start+length; i++) {
+//     retn += str[i];    
+//   }
+//   return retn;
+// }
+
+
 
 function RotateChars(string, rotate=1){
     if (rotate==0){
@@ -126,6 +122,8 @@ function RotateChars(string, rotate=1){
 }
 RotateChars("abc");
 RotateChars("This is a good sentence to rotate on!! :)",5);
+console.log("");
+
 
 function censor(string,array){
     for (var idx in array){
@@ -135,15 +133,15 @@ function censor(string,array){
     console.log(string);
 
 }
-censor("You are a shithead in the shiny hitbox!", ["shit"]);
+censor("You are a forehead in the ore rehost!", ["fore"]);
 
 
 function CensorString(str,word) {
   retn = "";
-  repl = ChrString(word.length, "*");
+  repl = GenerateStringOfChar('*', word.length);
   // console.log(repl);
   for (i=0; i<str.length; i++) {
-    teststr = SubString(str,i,word.length);
+    teststr = ReturnSubstring(str,i,word.length);
     if (teststr == word) {
       // console.log(teststr);
       retn += repl;
