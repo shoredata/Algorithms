@@ -8,8 +8,5 @@ function sum_squares(n, val=1, sum=0){
         val += 1;
         return sum + sum_squares(n, val, sum);
 }
-
 var n1= 10;
 console.log(sum_squares(n1));
-
-
