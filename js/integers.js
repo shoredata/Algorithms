@@ -1,4 +1,7 @@
-function sum_squares(n, val=1, sum=0){
+// https://repl.it/@bearfish47x/Javascript-Algorithms-Integers-v1
+
+
+function SumOfSquares(n, val=1, sum=0){
     if (n<=0)
         return sum;
     else
@@ -6,12 +9,13 @@ function sum_squares(n, val=1, sum=0){
         console.log(val, n, sum);
         sum += val^2;
         val += 1;
-        return sum + sum_squares(n, val, sum);
+        return sum + SumOfSquares(n, val, sum);
 }
 var n1= 10;
-console.log(sum_squares(n1));
+console.log(n1, "SumOfSquares:", SumOfSquares(n1));
+console.log();
 
-console.log("1. ");
+
 function PrintPositiveUpToInteger(x){
   var breturn = true;
   if (x<0)
@@ -31,12 +35,12 @@ function PrintPositiveUpToInteger(x){
   }
   return breturn;
 }
-console.log(10, true, ":", PrintPositiveUpToInteger(10));
-console.log(0, false, ":", PrintPositiveUpToInteger(0));
-console.log(-7, false, ":", PrintPositiveUpToInteger(-7));
+console.log(10, true, "PrintPositiveUpToInteger:", PrintPositiveUpToInteger(10));
+console.log(0, false, "PrintPositiveUpToInteger:", PrintPositiveUpToInteger(0));
+console.log(-7, false, "PrintPositiveUpToInteger:", PrintPositiveUpToInteger(-7));
 console.log("");
 
-console.log("2. ");
+
 function PrintSumToInteger(x){
   sum = 0;
   for (var idx=0; idx<=x; idx++){
@@ -45,5 +49,5 @@ function PrintSumToInteger(x){
   }
   return sum
 }
-console.log(32640, ":", PrintSumToInteger(255)); //32640
+console.log(255, 32640, "PrintSumToInteger:", PrintSumToInteger(255)); //32640
 console.log("");
