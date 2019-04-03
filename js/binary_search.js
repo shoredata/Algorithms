@@ -6,19 +6,17 @@
 // 4. If T > M, return the result of the recursion on the the latter half of ARR
 
 function binarySearch(arr, target, start=0, stop=(arr.length-1)) {
-
-  let midPoint = Math.floor(((stop-start)/2) + start)
-
-  switch (true) {
-    case arr[midPoint] === target:
-      return true
-    case stop - start === 0:
-      return false
-    case arr[midPoint] < target:
-      return binarySearch(arr, target, midPoint+1, stop)
-    case arr[midPoint] > target:
-      return binarySearch(arr, target, start, midPoint)
-  }
+    let midPoint = Math.floor(((stop-start)/2) + start)
+    switch (true) {
+        case arr[midPoint] === target:
+            return true
+        case stop - start === 0:
+            return false
+        case arr[midPoint] < target:
+            return binarySearch(arr, target, midPoint+1, stop)
+        case arr[midPoint] > target:
+            return binarySearch(arr, target, start, midPoint)
+    }
 }
 
 var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
