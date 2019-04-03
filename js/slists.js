@@ -1,11 +1,6 @@
 //  https://repl.it/@bearfish47x/Javascript-Algorithms-SLists-v1
 
 
-// function debug(str) {
-//   // console.log(str);
-// }
-
-
 function Node(value) {
   this.value = value;
   this.next = null;
@@ -14,10 +9,6 @@ function Node(value) {
 function SList() {
   this.head = null;
 };
-
-// Console = function () {
-//   this.log = function(msg){ debug(msg) };
-// };
 
 
 SList.prototype.removestart = function() {
@@ -123,7 +114,7 @@ SList.prototype.remove = function(value) {
         console.log("found " + value + " after " + current.value)
         var temp = current.next;
         current.next = current.next.next;
-        temp = null; //???? does this free up memorry? ask katie?
+        temp = null; //???? does this free up memory?
         this.display();
         return this;
       }
@@ -137,20 +128,37 @@ SList.prototype.remove = function(value) {
   return this;
 }
 
+SList.prototype.valuePosition = function(value) {
+  console.log("Contains(" + value + ")");
+  var current = this.head;
+  var counter = 0;
+  this.display();
+  while(current){
+    if (current.value==value){
+      console.log("- true: Index = ", counter);
+      return counter;
+    }
+    counter++;
+    current = current.next;
+  }
+  console.log("- false: Index = -1");
+  return -1;
+}
+
 SList.prototype.contains = function(value) {
+  console.log("Contains(" + value + ")");
   var current = this.head;
   this.display();
   while(current){
     if (current.value==value){
-      console.log("SList.contains(" + value + ") = true");
+      console.log("- true");
       return true;
     }
     current = current.next;
   }
-  console.log("SList.contains(" + value + ") = false");
+  console.log("- false");
   return false;
 }
-
 
 
 
@@ -233,16 +241,8 @@ SList.prototype.average = function(value) {
   console.log("average = " + avg);
   return avg;
 }
-SList.prototype.swap = function(x,y) {
-}
-SList.prototype.mintofront = function() {
-}
-SList.prototype.maxtoend = function() {
-}
-SList.prototype.findprev = function(value) {
-
-}
 SList.prototype.find = function(value) {
+  console.log("find(" + value + ")");
   var current = this.head;
   this.display();
   while(current){
@@ -254,11 +254,10 @@ SList.prototype.find = function(value) {
   }
   console.log("not found");
   return null;
-
 }
 
 SList.prototype.zipinorder = function(q) {
-  console.log("zip(" + q+ ")");
+  console.log("zipinorder(" + q+ ")");
   console.log("Before: ");
   this.display();
   q.display();
@@ -317,9 +316,6 @@ SList.prototype.reverselist = function() {
 
 
 
-
-
-// var console = new Console();
 var list1 = new SList();
 list1.add(1)
 list1.add(2)
@@ -354,16 +350,12 @@ list1.end()
 var list1 = new SList();
 var list2 = new SList();
 
-// list1.add(11);
-// list1.add(12);
-// list1.add(13);
 list1.add(14);
 list2.add(21);
 list2.add(22);
 list2.add(23);
 list2.add(24);
 list1.zipinorder(list2);
-// list1.reverselist();
 
 
 var list3 = new SList()
@@ -390,128 +382,99 @@ list3.reverselist();
 list5.reverselist();
 
 
+SList.prototype.updateValueAtPosition = function(newvalue, position) {
+  console.log("updateValueAtPosition(" + newvalue + "," + position + ")");
+  var current = this.head;
+  var counter = 0;
+  this.display();
+  while(current){
+    if (position == counter){
+      console.log("found: " + position + " = " + current.value);
+      current.value = newvalue;
+      console.log(" -- new: " + current.value);
+      return current;
+    }
+    counter++;
+    current = current.next;
+  }
+  console.log("not found");
+  return null;
+}
 
 
-// // OUTPUT::
-// //
-// 11:19:53 bart ~/projects/cd/algorithms/js (master)
-// $ js slist_exercises.js
-// --> add(1)
-// --> 1
-// --> add(2)
-// --> 1,2
-// --> add(3)
-// --> 1,2,3
-// --> add(4)
-// --> 1,2,3,4
-// --> addstart(-1)
-// --> -1,1,2,3,4
-// --> addstart(0)
-// --> 0,-1,1,2,3,4
-// --> removestart()
-// --> -1,1,2,3,4
-// --> addbefore(0,1)
-// --> -1,0,1,2,3,4
-// --> addbefore(-9,-8)
-// --> -1,0,1,2,3,4,-9
-// --> addbefore(-10,-9)
-// --> -1,0,1,2,3,4,-10,-9
-// --> remove(19)
-// --> did not find value
-// --> -1,0,1,2,3,4,-10,-9
-// --> remove(0)
-// --> found 0 after -1
-// --> -1,1,2,3,4,-10,-9
-// --> remove(-1)
-// --> this.head.value == value
-// --> 1,2,3,4,-10,-9
-// --> remove(2)
-// --> found 2 after 1
-// --> 1,3,4,-10,-9
-// --> remove(-10)
-// --> found -10 after 4
-// --> 1,3,4,-9
-// --> remove(-9)
-// --> found -9 after 4
-// --> 1,3,4
-// --> remove(-9)
-// --> did not find value
-// --> 1,3,4
-// --> 1,3,4
-// --> SList.contains(-1) = false
-// --> 1,3,4
-// --> SList.contains(1) = true
-// --> length = 3
-// --> min = 1
-// --> max = 4
-// --> sum = 8
-// --> length = 3
-// --> sum = 8
-// --> length = 3
-// --> average = 2.6666666666666665
-// --> front = 1
-// --> end = 4
-// --> add(14)
-// --> 14
-// --> add(21)
-// --> 21
-// --> add(22)
-// --> 21,22
-// --> add(23)
-// --> 21,22,23
-// --> add(24)
-// --> 21,22,23,24
-// --> zip([object Object])
-// --> Before:
-// --> 14
-// --> 21,22,23,24
-// --> After:
-// --> 14,21,22,23,24
-// -->
-// --> add(31)
-// --> 31
-// --> add(32)
-// --> 31,32
-// --> add(33)
-// --> 31,32,33
-// --> add(34)
-// --> 31,32,33,34
-// --> add(41)
-// --> 41
-// --> zip([object Object])
-// --> Before:
-// --> 31,32,33,34
-// --> 41
-// --> After:
-// --> 31,41,32,33,34
-// -->
-// --> add(51)
-// --> 51
-// --> add(52)
-// --> 51,52
-// --> add(61)
-// --> 61
-// --> add(62)
-// --> 61,62
-// --> zip([object Object])
-// --> Before:
-// --> 51,52
-// --> 61,62
-// --> After:
-// --> 51,61,52,62
-// -->
-// --> reverselist()
-// --> Before:
-// --> 14,21,22,23,24
-// --> After:
-// --> 24,23,22,21,14
-// --> reverselist()
-// --> Before:
-// --> 31,41,32,33,34
-// --> After:
-// --> 34,33,32,41,31
-// --> reverselist()
-// --> Before:
-// --> 51,61,52,62
-// --> After:
-// --> 62,52,61,51
+SList.prototype.swap = function(x,y) {
+    console.log("Swap(" + x + "," + y + "), Before:") + this.display();
+    var xpos=this.valuePosition(x), ypos=this.valuePosition(y);
+    if (xpos>=0) {
+        if (ypos>=0) {
+            this.updateValueAtPosition(x, ypos);
+            this.updateValueAtPosition(y, xpos);
+            console.log("--- After:") + this.display();
+        }
+    }
+}
+SList.prototype.mintofront = function() {
+    console.log("mintofront() Before:") + this.display();
+    var min = this.min();
+    if (min) {
+        this.remove(min);
+        this.addstart(min);
+    }
+    console.log("--- After:") + this.display();
+    return;
+}
+SList.prototype.maxtoend = function() {
+    console.log("maxtoend() Before:") + this.display();
+    var max = this.max();
+    if (max) {
+        this.remove(max);
+        this.add(max);
+    }
+    console.log("--- After:") + this.display();
+    return;
+}
+SList.prototype.findprev = function(value) {
+  console.log("findprev(" + value + ")");
+  var current = this.head;
+  var prev = null;
+  this.display();
+  while(current){
+    if (current.value==value){
+        if (prev) {
+            console.log("found " + current.value + ", prev = " + prev.value);
+        }
+        else {
+            console.log("found " + current.value + ", prev = null");
+        }
+      return prev;
+    }
+    prev = current;
+    current = current.next;
+  }
+  console.log("not found");
+  return null;
+}
+
+
+console.log();
+list5.swap(52,51);
+
+console.log();
+list5.swap(52,51);
+
+console.log();
+list3.display();
+list3.add(-19);
+list3.add(38);
+list3.mintofront();
+
+console.log();
+list3.display();
+list3.addstart(100);
+list3.maxtoend();
+
+console.log();
+list3.findprev(100);
+list3.findprev(-19);
+
+
