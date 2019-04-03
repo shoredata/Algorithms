@@ -1,4 +1,9 @@
-//
+//  https://repl.it/@bearfish47x/Javascript-Algorithms-SLists-v1
+
+
+// function debug(str) {
+//   // console.log(str);
+// }
 
 
 function Node(value) {
@@ -10,9 +15,9 @@ function SList() {
   this.head = null;
 };
 
-Console = function () {
-  this.log = function(msg){ debug(msg) };
-};
+// Console = function () {
+//   this.log = function(msg){ debug(msg) };
+// };
 
 
 SList.prototype.removestart = function() {
@@ -314,7 +319,7 @@ SList.prototype.reverselist = function() {
 
 
 
-var console = new Console();
+// var console = new Console();
 var list1 = new SList();
 list1.add(1)
 list1.add(2)
