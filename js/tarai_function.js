@@ -2,7 +2,6 @@
 
 // tarai(x,y,z) =  x<=y ? y : tarai(tarai(x-1,y,z), tarai(y-1,z,x), tarai(z-1,x,y))
 
-
 //fascinating, ints vs. floats:
 //view-source:https://www.g200kg.com/docs/asmjs/testcall.html
 
@@ -25,3 +24,7 @@ function tarai(x,y,z) {
 
 console.log(10,2,9,tarai(10,2,9));
 // the above = 9 but does not print out the 4145 counter & im not sure whey ....
+
+// Bart@bart-i7-6000k MINGW64 ~/projects/algorithms/js (master)
+// $ node tarai_function.js
+// 10 2 9 9

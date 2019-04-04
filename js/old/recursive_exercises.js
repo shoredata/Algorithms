@@ -1,7 +1,3 @@
-const factorial = (x , acum = 1) => Math.floor(parseInt(x))  ? factorial(Math.floor(parseInt(x))  - 1, Math.floor(parseInt(x))  * acum) : acum;
-console.log("factorial 5: " + factorial(5)); // 120
-console.log("factorial 0: " + factorial(0)); // 1
-console.log("factorial 6.5: " + factorial(6.5)); // 720
 
 const sigma = (x, acum = 0) => Math.floor(parseInt(x)) > 0 ? sigma(Math.floor(parseInt(x)) - 1, Math.floor(parseInt(x)) + acum) : acum;
 console.log("sigma 5: " + sigma(5)); // 15

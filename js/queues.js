@@ -6,9 +6,9 @@ function QueueList(){
   this.head = null;
   this.tail = null;
 };
-Console = function () {
-  this.log = function(msg){ debug(msg) };
-};
+// Console = function () {
+//   this.log = function(msg){ debug(msg) };
+// };
 
 
 QueueList.prototype.display = function() {
@@ -55,7 +55,7 @@ QueueList.prototype.removefront = function() {
   return this;
 };
 
-var console = new Console();
+// var console = new Console();
 q1 = new QueueList();
 q1.addend(1);
 q1.removefront();
@@ -82,3 +82,22 @@ q1.removefront();
 // --> removefront()
 // --> 10,11
 // --> 11
+
+// Bart@bart-i7-6000k MINGW64 ~/projects/algorithms/js (master)
+// $ node queues.js
+// addend(1)
+// []
+// [ 1 ]
+// removefront()
+// [ 1 ]
+// []
+// addend(10)
+// []
+// [ 10 ]
+// addend(11)
+// [ 10 ]
+// [ 10, 11 ]
+// removefront()
+// [ 10, 11 ]
+// [ 11 ]
+
