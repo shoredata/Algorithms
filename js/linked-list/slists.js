@@ -178,24 +178,6 @@ LinkedList.prototype.delete = function(value) {
 }
 
 
-
-// LinkedList.prototype.valuePosition = function(value) {
-//   console.log("Contains(" + value + ")");
-//   var current = this.head;
-//   var counter = 0;
-//   this.display();
-//   while(current){
-//     if (current.value==value){
-//       console.log("- true: Index = ", counter);
-//       return counter;
-//     }
-//     counter++;
-//     current = current.next;
-//   }
-//   console.log("- false: Index = -1");
-//   return -1;
-// }
-
 LinkedList.prototype.contains = function(value) {
   var current = this.head;
   this.display();
@@ -211,25 +193,6 @@ LinkedList.prototype.contains = function(value) {
 }
 
 
-
-// LinkedList.prototype.front = function() {
-//   var frontval = null;
-//   if (this.head!=null){
-//     frontval = this.head.value;
-//   }
-//   console.log("front = " + frontval);
-//   return frontval;
-// }
-// LinkedList.prototype.end = function() {
-//   var endval = null;
-//   var current = this.head;
-//   while(current){
-//     endval = current.value
-//     current = current.next;
-//   }
-//   console.log("end = " + endval);
-//   return endval;
-// }
 LinkedList.prototype.length = function(value) {
   var current = this.head;
   var length = 0;
@@ -369,7 +332,6 @@ LinkedList.prototype.reverse = function() {
 
 
 LinkedList.prototype.display = function() {
-//  console.log("display()");
   var current = this.head;
   var mylist = [];
   while (current) {
@@ -391,40 +353,6 @@ LinkedList.prototype.displayReverse = function() {
 };
 
 
-
-
-
-// LinkedList.prototype.updateValueAtPosition = function(newvalue, position) {
-//   console.log("updateValueAtPosition(" + newvalue + "," + position + ")");
-//   var current = this.head;
-//   var counter = 0;
-//   this.display();
-//   while(current){
-//     if (position == counter){
-//       console.log("found: " + position + " = " + current.value);
-//       current.value = newvalue;
-//       console.log(" -- new: " + current.value);
-//       return current;
-//     }
-//     counter++;
-//     current = current.next;
-//   }
-//   console.log("not found");
-//   return null;
-// }
-
-
-// LinkedList.prototype.swap = function(x,y) {
-//     console.log("Swap(" + x + "," + y + "), Before:") + this.display();
-//     var xpos=this.valuePosition(x), ypos=this.valuePosition(y);
-//     if (xpos>=0) {
-//         if (ypos>=0) {
-//             this.updateValueAtPosition(x, ypos);
-//             this.updateValueAtPosition(y, xpos);
-//             console.log("--- After:") + this.display();
-//         }
-//     }
-// }
 LinkedList.prototype.swap = function(val1, val2) {
   console.log("swap(" + val1 + "," + val2 + "), Before:");
   this.display();
@@ -552,12 +480,28 @@ LinkedList.prototype.toString = function(callback) {
 
 
 
-LinkedList.prototype.traverse = function() {
+LinkedList.prototype.traverse = function*() {
   console.log("traverse()");
+  var current = this.head;
+  while (current) {
+    yield(current.value);
+    current = current.next;
+  }
+  return;
 }
 
-LinkedList.prototype.traverseReverse = function() {
+LinkedList.prototype.traverseReverse = function*() {
   console.log("traverseReverse()");
+  var current = this.head;
+  var mylist = [];
+  while (current) {
+    mylist.push(current.value); //push,pop=END :: unshift,shift=START
+    current = current.next;
+  }
+  while (mylist.length>0) {
+    yield(mylist.pop()); //push,pop=END :: unshift,shift=START
+  }
+  return;
 }
 
 
@@ -661,4 +605,20 @@ console.log("Reverse");
 list3.displayReverse();
 
 
-console.log("MUST DO TRAVERSE && TRAVERSEREVERSE!!");
+
+console.log();
+const iterator = list3.traverse();
+var output = iterator.next().value;
+while(output) { 
+  console.log(output); 
+  output = iterator.next().value;
+}
+
+console.log();
+const iteratorrev = list3.traverseReverse();
+var output = iteratorrev.next().value;
+while(output) { 
+  console.log(output); 
+  output = iteratorrev.next().value;
+}
+console.log();
