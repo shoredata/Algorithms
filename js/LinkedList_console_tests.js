@@ -1,6 +1,6 @@
-let slists = require('./slists');
+let LinkedList = require('./LinkedList');
 
-var list1 = new slists.LinkedList();
+var list1 = new LinkedList.LinkedList();
 list1.append(1)
 list1.append(2)
 list1.append(3)
@@ -30,8 +30,8 @@ list1.average()
 console.log(list1.head.value);
 console.log(list1.tail.value);
 
-var list1 = new slists.LinkedList();
-var list2 = new slists.LinkedList();
+var list1 = new LinkedList.LinkedList();
+var list2 = new LinkedList.LinkedList();
 
 list1.append(14);
 list2.append(21);
@@ -41,8 +41,8 @@ list2.append(24);
 list1.zipinorder(list2);
 
 
-var list3 = new slists.LinkedList()
-var list4 = new slists.LinkedList();
+var list3 = new LinkedList.LinkedList()
+var list4 = new LinkedList.LinkedList();
 
 list3.append(31);
 list3.append(32);
@@ -51,8 +51,8 @@ list3.append(34);
 list4.append(41);
 list3.zipinorder(list4);
 
-var list5 = new slists.LinkedList()
-var list6 = new slists.LinkedList();
+var list5 = new LinkedList.LinkedList()
+var list6 = new LinkedList.LinkedList();
 
 list5.append(51);
 list5.append(52);
