@@ -18,11 +18,11 @@ the data.
 `B` - Beginner, `A` - Advanced
 
 DONE:
+* `B` [Linked List](js/slists)
 
 ===============================================================================
 TODO:
 
-* `B` [Linked List](js/src/data-structures/linked-list)
 * `B` [Doubly Linked List](js/src/data-structures/doubly-linked-list)
 * `B` [Queue](js/src/data-structures/queue)
 * `B` [Stack](js/src/data-structures/stack)
