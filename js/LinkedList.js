@@ -1,3 +1,4 @@
+
 class LinkedListNode {
   constructor(value, next = null) {
     this.value = value;
@@ -97,6 +98,7 @@ LinkedList.prototype.insertBefore = function(value, before) {
         current = current.next;
       }
     }
+    this.tail = node; //only way it gets here is before not found
     current.next = node;
   }
   return this;
@@ -351,7 +353,7 @@ LinkedList.prototype.toArray = function() {
   const nodes = [];
   let currentNode = this.head;
   while (currentNode) {
-    nodes.push(currentNode);
+    nodes.push(currentNode.value);
     currentNode = currentNode.next;
   }
   return nodes;
