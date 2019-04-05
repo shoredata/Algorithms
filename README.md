@@ -18,7 +18,7 @@ the data.
 `B` - Beginner, `A` - Advanced
 
 DONE:
-* `B` [Linked List](js/LinkedList)
+* `B` [Linked List](js/LinkedList.js)
 
 ===============================================================================
 TODO:
