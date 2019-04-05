@@ -212,8 +212,6 @@ LinkedList.prototype.find = function(value) {
 }
 
 LinkedList.prototype.zipinorder = function(q) {
-  this.display();
-  q.display();
   // Main function that inserts nodes of linked list q into p at
   // alternate positions. Since head of first list never changes
   // and head of second list/ may change, we need single pointer
@@ -240,7 +238,6 @@ LinkedList.prototype.zipinorder = function(q) {
     }
   }
   q.head = null;
-  q.display();
   return this;
 };
 
