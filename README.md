@@ -22,11 +22,11 @@ DONE:
 ===============================================================================
 IN PROGRESS:
 * `B` [Linked List](js/LinkedList.js)
+* `B` [Queue](js/Queue.js)
 
 ===============================================================================
 TODO:
 * `B` [Doubly Linked List](js/src/data-structures/doubly-linked-list)
-* `B` [Queue](js/src/data-structures/queue)
 * `B` [Stack](js/src/data-structures/stack)
 * `B` [Hash Table](js/src/data-structures/hash-table)
 * `B` [Heap](js/src/data-structures/heap) - max and min heap versions
@@ -53,14 +53,44 @@ a set of rules that precisely define a sequence of operations.
 DONE:
 
 ===============================================================================
+IN PROGRESS:
+* **Integers**
+  * `B` [Integer Algorithms](js/integers.js)
+  * `B` [Greatest Common Factor](js/greatest_common_factor.js) 
+  * `B` [Factorial](js/factorial.js) 
+  * `B` [Sum of Squares](js/sum_of_squares.js) 
+  * `B` [Tarai Function](js/tarai.js) 
+  * `B` [Sigma Function](js/sigma.js) 
+  * `B` [Fibonacci Number](js/fibonacci.js) - all versions
+* **Strings**
+  * `B` [String Permutations](js/string_permutations.js)
+  * `B` [String In-Order Subsets](js/string_inorder_subsets.js)
+  * `B` [String Algorithms](js/strings.js)
+  * `A` [IP Addresses](js/ip_addresses.js) - valid ipv4 addresses from string of integers
+  * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
+* **Arrays**
+  * `B` [Flood-Fill](js/array_flood_fill.js) 
+  * `B` [Array Algorithms](js/arrays.js)
+  * `A` [Permutations](js/src/algorithms/sets/permutations) (with and without repetitions)
+  * `A` [Combinations](js/src/algorithms/sets/combinations) (with and without repetitions)
+  * `A` [Longest Common Subsequence](js/src/algorithms/sets/longest-common-subsequence) (LCS)
+  * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
+  * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence) (SCS)
+* **Searches**
+  * `B` [Binary Search](js/binary-search.js) - search in sorted array
+* **Linked Lists**
+  * `B` [Straight Traversal](js/src/algorithms/linked-list/traversal)
+  * `B` [Reverse Traversal](js/src/algorithms/linked-list/reverse-traversal)
+* **Misc**
+  * `B` [Tower of Hanoi](js/hanoi.js)
+
+===============================================================================
 TODO:
 
 ### Algorithms by Topic
 
 * **Math**
   * `B` [Bit Manipulation](js/src/algorithms/math/bits) - set/get/update/clear bits, multiplication/division by two, make negative etc.
-  * `B` [Factorial](js/src/algorithms/math/factorial) 
-  * `B` [Fibonacci Number](js/src/algorithms/math/fibonacci) - classic and closed-form versions
   * `B` [Primality Test](js/src/algorithms/math/primality-test) (trial division method)
   * `B` [Euclidean Algorithm](js/src/algorithms/math/euclidean-algorithm) - calculate the Greatest Common Divisor (GCD)
   * `B` [Least Common Multiple](js/src/algorithms/math/least-common-multiple) (LCM)
@@ -78,11 +108,6 @@ TODO:
   * `B` [Cartesian Product](js/src/algorithms/sets/cartesian-product) - product of multiple sets
   * `B` [Fisher–Yates Shuffle](js/src/algorithms/sets/fisher-yates) - random permutation of a finite sequence
   * `A` [Power Set](js/src/algorithms/sets/power-set) - all subsets of a set (bitwise and backtracking solutions)
-  * `A` [Permutations](js/src/algorithms/sets/permutations) (with and without repetitions)
-  * `A` [Combinations](js/src/algorithms/sets/combinations) (with and without repetitions)
-  * `A` [Longest Common Subsequence](js/src/algorithms/sets/longest-common-subsequence) (LCS)
-  * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
-  * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence) (SCS)
   * `A` [Knapsack Problem](js/src/algorithms/sets/knapsack-problem) - "0/1" and "Unbound" ones
   * `A` [Maximum Subarray](js/src/algorithms/sets/maximum-subarray) - "Brute Force" and "Dynamic Programming" (Kadane's) versions
   * `A` [Combination Sum](js/src/algorithms/sets/combination-sum) - find all combinations that form specific sum
@@ -92,12 +117,10 @@ TODO:
   * `A` [Knuth–Morris–Pratt Algorithm](js/src/algorithms/string/knuth-morris-pratt) (KMP Algorithm) - substring search (pattern matching)
   * `A` [Z Algorithm](js/src/algorithms/string/z-algorithm) - substring search (pattern matching)
   * `A` [Rabin Karp Algorithm](js/src/algorithms/string/rabin-karp) - substring search
-  * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
   * `A` [Regular Expression Matching](js/src/algorithms/string/regular-expression-matching)
 * **Searches**
   * `B` [Linear Search](js/src/algorithms/search/linear-search)
   * `B` [Jump Search](js/src/algorithms/search/jump-search) (or Block Search) - search in sorted array
-  * `B` [Binary Search](js/src/algorithms/search/binary-search) - search in sorted array
   * `B` [Interpolation Search](js/src/algorithms/search/interpolation-search) - search in uniformly distributed sorted array
 * **Sorting**
   * `B` [Bubble Sort](js/src/algorithms/sorting/bubble-sort)
@@ -109,9 +132,6 @@ TODO:
   * `B` [Shellsort](js/src/algorithms/sorting/shell-sort)
   * `B` [Counting Sort](js/src/algorithms/sorting/counting-sort)
   * `B` [Radix Sort](js/src/algorithms/sorting/radix-sort)
-* **Linked Lists**
-  * `B` [Straight Traversal](js/src/algorithms/linked-list/traversal)
-  * `B` [Reverse Traversal](js/src/algorithms/linked-list/reverse-traversal)
 * **Trees**
   * `B` [Depth-First Search](js/src/algorithms/tree/depth-first-search) (DFS)
   * `B` [Breadth-First Search](js/src/algorithms/tree/breadth-first-search) (BFS)
@@ -134,7 +154,6 @@ TODO:
 * **Cryptography**
   * `B` [Polynomial Hash](js/src/algorithms/cryptography/polynomial-hash) - rolling hash function based on polynomial
 * **Uncategorized**
-  * `B` [Tower of Hanoi](js/src/algorithms/uncategorized/hanoi-tower)
   * `B` [Square Matrix Rotation](js/src/algorithms/uncategorized/square-matrix-rotation) - in-place algorithm
   * `B` [Jump Game](js/src/algorithms/uncategorized/jump-game) - backtracking, dynamic programming (top-down + bottom-up) and greedy examples 
   * `B` [Unique Paths](js/src/algorithms/uncategorized/unique-paths) - backtracking, dynamic programming and Pascal's Triangle based examples 
@@ -163,8 +182,9 @@ algorithm is an abstraction higher than a computer program.
   * `A` [Prim’s Algorithm](js/src/algorithms/graph/prim) - finding Minimum Spanning Tree (MST) for weighted undirected graph
   * `A` [Kruskal’s Algorithm](js/src/algorithms/graph/kruskal) - finding Minimum Spanning Tree (MST) for weighted undirected graph
 * **Divide and Conquer** - divide the problem into smaller parts and then solve those parts
-  * `B` [Binary Search](js/src/algorithms/search/binary-search)
-  * `B` [Tower of Hanoi](js/src/algorithms/uncategorized/hanoi-tower)
+  * `B` [Binary Search](js/binary-search.js)
+  * `B` [Tower of Hanoi](js/hanoi.js)
+
   * `B` [Pascal's Triangle](js/src/algorithms/math/pascal-triangle)
   * `B` [Euclidean Algorithm](js/src/algorithms/math/euclidean-algorithm) - calculate the Greatest Common Divisor (GCD)
   * `B` [Merge Sort](js/src/algorithms/sorting/merge-sort)
@@ -177,15 +197,16 @@ algorithm is an abstraction higher than a computer program.
   * `A` [Combinations](js/src/algorithms/sets/combinations) (with and without repetitions)
 * **Dynamic Programming** - build up a solution using previously found sub-solutions
   * `B` [Fibonacci Number](js/src/algorithms/math/fibonacci)
+  * `A` [Longest Common Subsequence](js/src/algorithms/sets/longest-common-subsequence) (LCS)
+  * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
+  * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
+  * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence)
+
   * `B` [Jump Game](js/src/algorithms/uncategorized/jump-game)
   * `B` [Unique Paths](js/src/algorithms/uncategorized/unique-paths)
   * `B` [Rain Terraces](js/src/algorithms/uncategorized/rain-terraces) - trapping rain water problem
   * `B` [Recursive Staircase](js/src/algorithms/uncategorized/recursive-staircase) - count the number of ways to reach to the top
   * `A` [Levenshtein Distance](js/src/algorithms/string/levenshtein-distance) - minimum edit distance between two sequences
-  * `A` [Longest Common Subsequence](js/src/algorithms/sets/longest-common-subsequence) (LCS)
-  * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
-  * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
-  * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence)
   * `A` [0/1 Knapsack Problem](js/src/algorithms/sets/knapsack-problem)
   * `A` [Integer Partition](js/src/algorithms/math/integer-partition)
   * `A` [Maximum Subarray](js/src/algorithms/sets/maximum-subarray)
