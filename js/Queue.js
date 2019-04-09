@@ -49,15 +49,15 @@ QueueList.prototype.toString = function(callback) {
   return this.LinkedList.toString(callback);
 }
 
-/**
- * @return: {length}
- */
-QueueList.prototype.length = function() {
-  if (!this.LinkedList.head) {
-    return 0;
-  }
-  return this.LinkedList.length();
-}
+// /**
+//  * @return: {length}
+//  */
+// QueueList.prototype.length = function() {
+//   if (!this.LinkedList.head) {
+//     return 0;
+//   }
+//   return this.LinkedList.length();
+// }
 
 
 if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
