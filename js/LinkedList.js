@@ -1,4 +1,3 @@
-
 class LinkedListNode {
   constructor(value, next = null) {
     this.value = value;
@@ -141,7 +140,7 @@ LinkedList.prototype.contains = function(value) {
   return false;
 }
 
-LinkedList.prototype.length = function(value) {
+LinkedList.prototype.length = function() {
   let current = this.head;
   let length = 0;
   while(current){
@@ -151,7 +150,7 @@ LinkedList.prototype.length = function(value) {
   return length;
 }
 
-LinkedList.prototype.min = function(value) {
+LinkedList.prototype.min = function() {
   let min = null;
   if (this.head!=null){
     min = this.head.value;
@@ -166,7 +165,7 @@ LinkedList.prototype.min = function(value) {
   return min;
 }
 
-LinkedList.prototype.max = function(value) {
+LinkedList.prototype.max = function() {
   let max = null;
   if (this.head!=null){
     max = this.head.value;
@@ -181,7 +180,7 @@ LinkedList.prototype.max = function(value) {
   return max;
 }
 
-LinkedList.prototype.sum = function(value) {
+LinkedList.prototype.sum = function() {
   let sum = null;
   if (this.head!=null){
     sum = 0;
@@ -194,7 +193,7 @@ LinkedList.prototype.sum = function(value) {
   return sum;
 }
 
-LinkedList.prototype.average = function(value) {
+LinkedList.prototype.average = function() {
   let avg = null;
   if (this.length()>0){
     avg = this.sum() / this.length();
