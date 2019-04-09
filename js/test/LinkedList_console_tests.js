@@ -73,7 +73,7 @@ console.log();
 
 list1.display();
 console.log("length, min, max, sum, average");
-console.log(list1.length(), list1.min(), list1.max(), list1.sum(), list1.average());
+console.log(list1.length, list1.min(), list1.max(), list1.sum(), list1.average());
 console.log();
 
 list1.display();

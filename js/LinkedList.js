@@ -18,6 +18,7 @@ class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
+    this.length = 0;
   }
 };
 
@@ -28,9 +29,11 @@ LinkedList.prototype.deleteHead = function() {
   const deletedHead = this.head;
   if (this.head.next) {
     this.head = this.head.next;
+    this.length--;
   } else {
     this.head = null;
     this.tail = null;
+    this.length = 0;
   }
   return deletedHead;
 };
@@ -40,6 +43,7 @@ LinkedList.prototype.deleteTail = function() {
   if (this.head === this.tail) {
     this.head = null;
     this.tail = null;
+    this.length = 0;
     return deletedTail;
   }
   let currentNode = this.head;
@@ -50,6 +54,7 @@ LinkedList.prototype.deleteTail = function() {
       currentNode = currentNode.next;
     }
   }
+  this.length--;
   this.tail = currentNode;
   return deletedTail;
 };
@@ -60,6 +65,7 @@ LinkedList.prototype.prepend = function(value) {
   if (!this.tail) {
     this.tail = node;
   }
+  this.length++;
   return this;
 };
 
@@ -68,10 +74,12 @@ LinkedList.prototype.append = function(value) {
   if (!this.head) {
     this.head = node;
     this.tail = node;
+    this.length = 1;
     return this;
   }
   this.tail.next = node;
   this.tail = node;
+  this.length++;
   return this;
 };
 
@@ -91,6 +99,7 @@ LinkedList.prototype.insertBefore = function(value, before) {
       if (current.next.value == before){
         node.next = current.next;
         current.next = node;
+        this.length++;
         return this;
       }
       else{
@@ -100,6 +109,7 @@ LinkedList.prototype.insertBefore = function(value, before) {
     this.tail = node; //only way it gets here is before not found
     current.next = node;
   }
+  this.length++;
   return this;
 }
 
@@ -126,6 +136,7 @@ LinkedList.prototype.delete = function(value) {
   if (this.tail.value === value) {
     this.tail = currentNode;
   }
+  this.lengthforce();
   return deletedNode;
 }
 
@@ -141,14 +152,26 @@ LinkedList.prototype.contains = function(value) {
 }
 
 LinkedList.prototype.length = function() {
+  // let current = this.head;
+  // let length = 0;
+  // while(current){
+  //   length++;
+  //   current = current.next;
+  // }
+  // return length;
+  return this.length; //TODO: check validity after deletion(s) if list contains multiple of same value
+}
+
+LinkedList.prototype.lengthforce = function() {
+  this.length = 0;
   let current = this.head;
-  let length = 0;
   while(current){
-    length++;
+    this.length++;
     current = current.next;
   }
-  return length;
+  return this.length;
 }
+
 
 LinkedList.prototype.min = function() {
   let min = null;
@@ -195,8 +218,8 @@ LinkedList.prototype.sum = function() {
 
 LinkedList.prototype.average = function() {
   let avg = null;
-  if (this.length()>0){
-    avg = this.sum() / this.length();
+  if (this.length>0){
+    avg = this.sum() / this.length;
   }
   return avg;
 }
@@ -239,6 +262,7 @@ LinkedList.prototype.zipinorder = function(q) {
     }
   }
   q.head = null;
+  this.lengthforce();
   return this;
 };
 
@@ -345,6 +369,7 @@ LinkedList.prototype.findprev = function(value) {
 
 LinkedList.prototype.fromArray = function(values) {
   values.forEach(value => this.append(value));
+  this.lengthforce();
   return this;
 }
 
