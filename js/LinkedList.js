@@ -9,11 +9,6 @@ class LinkedListNode {
   }
 }
 
-//function LinkedList() {
-//  this.head = null;
-//  this.tail = null;
-//};
-
 class LinkedList {
   constructor() {
     this.head = null;

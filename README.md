@@ -18,15 +18,15 @@ the data.
 `B` - Beginner, `A` - Advanced
 
 DONE:
+* `B` [Linked List - js](js/LinkedList.js)
+* `B` [Queue - js](js/Queue.js)
 
 ===============================================================================
 IN PROGRESS:
-* `B` [Linked List](js/LinkedList.js)
-* `B` [Queue](js/Queue.js)
+* `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
 
 ===============================================================================
 TODO:
-* `B` [Doubly Linked List](js/src/data-structures/doubly-linked-list)
 * `B` [Stack](js/src/data-structures/stack)
 * `B` [Hash Table](js/src/data-structures/hash-table)
 * `B` [Heap](js/src/data-structures/heap) - max and min heap versions
