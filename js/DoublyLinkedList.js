@@ -27,7 +27,7 @@ class DoublyLinkedList {
     /** @var DoublyLinkedListNode */
     this.tail = null;
 
-    this.compare = new Comparator(comparatorFunction);
+    this.compare = new Comparator.Comparator(comparatorFunction);
   }
 
   /**
