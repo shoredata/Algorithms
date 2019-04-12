@@ -20,14 +20,14 @@ the data.
 DONE:
 * `B` [Linked List - js](js/LinkedList.js)
 * `B` [Queue - js](js/Queue.js)
-
-===============================================================================
-IN PROGRESS:
 * `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
 
 ===============================================================================
-TODO:
+IN PROGRESS:
 * `B` [Stack](js/src/data-structures/stack)
+
+===============================================================================
+TODO:
 * `B` [Hash Table](js/src/data-structures/hash-table)
 * `B` [Heap](js/src/data-structures/heap) - max and min heap versions
 * `B` [Priority Queue](js/src/data-structures/priority-queue)
