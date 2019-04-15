@@ -10,47 +10,74 @@ struct node {
   node *next;
 };
 
-bool isEmpty(node *head);
-char menu();
-void insertAsFirst(node *&head, node *&tail, int number); //by ref because we will be chaning them
-void insert(node *&head, node *&tail, int number);
-void remove(node *&head, node *&tail);
-void showList(node *head);
 
-
-bool isEmpty(node *head)
+class LinkedList
 {
-  if (head == NULL)
-    return true;
-  else
-    return false;
-}
+  node *head, *tail;
+public:
+  LinkedList()
+  {
+    head = NULL;
+    tail = NULL;
+  }
+  bool isEmpty();
+  void insertHead(int number); //by ref because we will be chaning them
+  void insert(int number); //at end, like array
+  int removeHead(); //remove head for queue
+  int remove(); //at end, like array
+  int peek(); //show tail number, like array
+  int peekHead(); //show head number for queue
+  int getLength();
+  void showList();
+};
+
+char menu();
+
 char menu()
 {
   char choice;
 
   cout << "Menu\n";
   cout << "1. Add Item\n";
-  cout << "2. Remove Item\n";
-  cout << "3. Show List\n";
-  cout << "4. Exit\n";
+  cout << "2. Remove\n";
+  cout << "3. Peek\n";
+  cout << "7. Count Items\n";
+  cout << "8. Show List\n";
+  cout << "9. Exit\n";
 
   cin >> choice;
   return choice;
 }
-void insertAsFirst(node *&head, node *&tail, int number)
+
+bool LinkedList::isEmpty()
+{
+  if (head == NULL)
+    return true;
+  else
+    return false;
+}
+void LinkedList::insertHead(int number)
 {
   node *temp = new node;
   temp->number = number;
   temp->next = NULL;
-  head = temp;
-  tail = temp;
-}
-void insert(node *&head, node *&tail, int number)
-{
-  if (isEmpty(head))
+  if (isEmpty()) 
   {
-    insertAsFirst(head, tail, number);
+    head = temp;
+    tail = temp;
+    temp = NULL;
+  }
+  else
+  {
+    temp->next = head;
+    head = temp;
+  }
+}
+void LinkedList::insert(int number)
+{
+  if (isEmpty())
+  {
+    insertHead(number);
   }
   else
   {
@@ -61,39 +88,151 @@ void insert(node *&head, node *&tail, int number)
     tail = temp;
   }
 }
-void remove(node *&head, node *&tail) 
+int LinkedList::remove()
 {
-  if (isEmpty(head))
+  int removed = NULL;
+  if (isEmpty())
+  {
     cout << "The list is empty\n";
+  }
   else if (head == tail)
   {
-    delete(head);
+    removed = head->number;
+    delete head;
+    delete tail;
     head = NULL;
     tail = NULL;
   }
   else
   {
-    node *temp = head;
-    head = head->next;
-    delete temp ;
+    //node *temp = new node;
+    //temp = head;
+    //head = head->next;
+    //removed = temp->number;
+    //delete temp;
+
+
+    //node *current = new node;
+    //node *previous = new node;
+    //current = head;
+    //while (current->next != NULL)
+    //{
+    //  previous = current;
+    //  current = current->next;
+    //}
+    //tail = previous;
+    //previous->next = NULL;
+    //delete current;
+
+    node *current = new node;
+    node *previous = new node;
+    current = head;
+    while (current->next != NULL)
+    {
+      previous = current;
+      current = current->next;
+    }
+    tail = previous;
+    previous->next = NULL;
+    removed = current->number;
+    delete current;
+
+    //node *temp = head;
+    //node *prev = NULL;
+    //while (temp != NULL)
+    //{
+    //  prev = temp;
+    //  temp = temp->next;
+    //}
+    //removed = tail->number;
+    //temp = tail;
+    //tail = prev;
+    //tail->next = NULL;
+    //delete temp;
   }
-
-
+  return removed;
 }
-void showList(node *current) 
+int LinkedList::removeHead()
 {
-  if (isEmpty(current))
-    cout << "The list is empty\n";
+  int removed = NULL;
+  if (isEmpty())
+  {
+    remove();
+  }
+  else if (head == tail)
+  {
+    remove();
+  }
   else
   {
-    cout << "The list contains: \n";
+    node *temp = new node;
+    temp = head;
+    head = head->next;
+    removed = temp->number;
+    delete temp;
+    //node *temp = head;
+    //head = head->next;
+    //removed = temp->number;
+    ////delete temp;
+  }
+  return removed;
+}
+int LinkedList::peek()
+{
+  if (isEmpty())
+  {
+    cout << "{ empty list }\n";
+    return 0;
+  }
+  else
+  {
+    return tail->number;
+  }
+}
+int LinkedList::peekHead()
+{
+  if (isEmpty())
+  {
+    cout << "{ empty list }\n";
+    return 0;
+  }
+  else
+  {
+    return head->number;
+  }
+
+}
+void LinkedList::showList()
+{
+  if (isEmpty())
+    cout << "{ empty list }\n";
+  else
+  {
+    cout << "List contains: \n";
+    node *current = head;
     while (current != NULL)
     {
       cout << current->number << endl;
       current = current->next;
     }
   }
-
+}
+int LinkedList::getLength()
+{
+  int length = 0;
+  if (!isEmpty())
+  {
+    node *current = head;
+    while (current != NULL)
+    {
+      //cout << current->number << endl;
+      current = current->next;
+      length++;
+    }
+  }
+  cout << "List Length: ";
+  cout << length << endl;
+  return length;
 }
 
 
@@ -101,8 +240,9 @@ void showList(node *current)
 
 int main()
 {
-  node *head = NULL;
-  node *tail = NULL;
+  LinkedList list; // add=tail, remove=tail, peek=tail.value (see Stack)
+  LinkedList queue; //add=tail, remove=head, peek=head.value
+
   char choice;
   int number;
 
@@ -111,21 +251,41 @@ int main()
     switch (choice)
     {
       case '1':
-        cout << "Please enter a number:";
+        cout << "Enter a number to insert: ";
         cin >> number;
-        insert(head, tail, number);
+        list.insert(number);
+        queue.insert(number);
         break;
       case '2':
-        remove(head, tail);
+        cout << "List Removed: ";
+        cout << list.remove() << endl;
+        cout << "Queue Removed: ";
+        cout << queue.removeHead() << endl;
         break;
       case '3':
-        showList(head);
+        cout << "Next value for List: ";
+        cout << list.peek() << endl;
+        cout << "Next value for Queue: ";
+        cout << queue.peekHead() << endl;
+        break;
+      case '7':
+        cout << "List Count: ";
+        list.getLength();
+        cout << "Queue Count: ";
+        queue.getLength();
+        break;
+      case '8':
+        cout << "List: ";
+        list.showList();
+        cout << "Queue: ";
+        queue.showList();
         break;
       default:
-        cout << "System Exit\n";
+        cout << "Exiting!\n\n\n";
+        break;
     }
 
-  } while (choice != '4');
+  } while (choice != '9');
 
   return 0;
 }
