@@ -21,12 +21,16 @@ public:
     tail = NULL;
   }
   bool isEmpty();
-  void insertHead(int number); //by ref because we will be chaning them
-  void insert(int number); //at end, like array
+  void prepend(int number); //by ref because we will be chaning them
+  void append(int number); //at end, like array
   int removeHead(); //remove head for queue
-  int remove(); //at end, like array
+  int removeTail(); //at end, like array
   int peek(); //show tail number, like array
   int peekHead(); //show head number for queue
+
+  node* deleteValue(int number); //remove all nodes of value number
+  bool contains(int number); //true if number is a value in the list
+
   int getLength();
   void showList();
 };
@@ -41,6 +45,8 @@ char menu()
   cout << "1. Add Item\n";
   cout << "2. Remove\n";
   cout << "3. Peek\n";
+  cout << "4. Test if Contains #\n";
+  cout << "5. Delete All #\n";
   cout << "7. Count Items\n";
   cout << "8. Show List\n";
   cout << "9. Exit\n";
@@ -56,7 +62,7 @@ bool LinkedList::isEmpty()
   else
     return false;
 }
-void LinkedList::insertHead(int number)
+void LinkedList::prepend(int number)
 {
   node *temp = new node;
   temp->number = number;
@@ -73,11 +79,11 @@ void LinkedList::insertHead(int number)
     head = temp;
   }
 }
-void LinkedList::insert(int number)
+void LinkedList::append(int number)
 {
   if (isEmpty())
   {
-    insertHead(number);
+    prepend(number);
   }
   else
   {
@@ -88,7 +94,36 @@ void LinkedList::insert(int number)
     tail = temp;
   }
 }
-int LinkedList::remove()
+node* LinkedList::deleteValue(int number)
+{
+  node *deleted = new node;
+  deleted = NULL;
+  if (isEmpty()) {
+    return deleted;
+  }
+  while (head!=NULL && head->number == number) {
+    deleted = head;
+    head = head->next;
+  }
+  node *current = new node;
+  current = head;
+  if (current != NULL) {
+    while (current->next) {
+      if (current->next->number == number) {
+        deleted = current->next;
+        current->next = current->next->next;
+      }
+      else {
+        current = current->next;
+      }
+    }
+  }
+  if (tail->number == number) {
+    tail = current;
+  }
+  return deleted;
+}
+int LinkedList::removeTail()
 {
   int removed = NULL;
   if (isEmpty())
@@ -105,25 +140,6 @@ int LinkedList::remove()
   }
   else
   {
-    //node *temp = new node;
-    //temp = head;
-    //head = head->next;
-    //removed = temp->number;
-    //delete temp;
-
-
-    //node *current = new node;
-    //node *previous = new node;
-    //current = head;
-    //while (current->next != NULL)
-    //{
-    //  previous = current;
-    //  current = current->next;
-    //}
-    //tail = previous;
-    //previous->next = NULL;
-    //delete current;
-
     node *current = new node;
     node *previous = new node;
     current = head;
@@ -136,19 +152,6 @@ int LinkedList::remove()
     previous->next = NULL;
     removed = current->number;
     delete current;
-
-    //node *temp = head;
-    //node *prev = NULL;
-    //while (temp != NULL)
-    //{
-    //  prev = temp;
-    //  temp = temp->next;
-    //}
-    //removed = tail->number;
-    //temp = tail;
-    //tail = prev;
-    //tail->next = NULL;
-    //delete temp;
   }
   return removed;
 }
@@ -157,11 +160,11 @@ int LinkedList::removeHead()
   int removed = NULL;
   if (isEmpty())
   {
-    remove();
+    removeTail();
   }
   else if (head == tail)
   {
-    remove();
+    removeTail();
   }
   else
   {
@@ -234,6 +237,25 @@ int LinkedList::getLength()
   cout << length << endl;
   return length;
 }
+bool LinkedList::contains(int number)
+{
+  bool bcontains = false;
+  if (!isEmpty())
+  {
+    node *current = head;
+    while (current != NULL)
+    {
+      if (current->number == number)
+      {
+        bcontains = true;
+        break;
+      }
+      current = current->next;
+    }
+  }
+  cout << "Contains: " << number << " " + bcontains << endl;
+  return bcontains;
+}
 
 
 
@@ -253,12 +275,12 @@ int main()
       case '1':
         cout << "Enter a number to insert: ";
         cin >> number;
-        list.insert(number);
-        queue.insert(number);
+        list.append(number);
+        queue.append(number);
         break;
       case '2':
         cout << "List Removed: ";
-        cout << list.remove() << endl;
+        cout << list.removeTail() << endl;
         cout << "Queue Removed: ";
         cout << queue.removeHead() << endl;
         break;
@@ -268,6 +290,21 @@ int main()
         cout << "Next value for Queue: ";
         cout << queue.peekHead() << endl;
         break;
+
+      case '4':
+        cout << "Enter a number to find: ";
+        cin >> number;
+        cout << "List " << list.contains(number) << endl;
+        cout << "Queue " << queue.contains(number) << endl;
+        break;
+      case '5':
+        cout << "Enter a number to delete: ";
+        cin >> number;
+        list.deleteValue(number);
+        queue.deleteValue(number);
+        break;
+
+
       case '7':
         cout << "List Count: ";
         list.getLength();
