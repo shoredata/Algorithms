@@ -39,16 +39,18 @@ public:
 
   node* deleteValue(int number); //remove all nodes of value number
   bool contains(int number); //true if number is a value in the list
-  statistics* getStatistics(); //calculate all stats values for list
+  statistics* getStatistics(bool boolhide); //calculate all stats values for list
+  void minToFront(); //remove all of min, put min at head
+  void maxToTail(); //remove all of max, put max at tail
 
   void showList();
 };
 
-char menu();
+int menu();
 
-char menu()
+int menu()
 {
-  char choice;
+  int choice;
 
   cout << "Menu\n";
   cout << "1. Add Item\n";
@@ -56,9 +58,12 @@ char menu()
   cout << "3. Peek\n";
   cout << "4. Test if Contains #\n";
   cout << "5. Delete All #\n";
+
   cout << "7. Calculate Statistics\n";
   cout << "8. Show List\n";
-  cout << "9. Exit\n";
+  cout << "9. Min to Front\n";
+  cout << "10. Max to Tail\n";
+  cout << "99. Exit\n";
 
   cin >> choice;
   return choice;
@@ -112,14 +117,16 @@ node* LinkedList::deleteValue(int number)
   }
   while (head!=NULL && head->number == number) {
     deleted = head;
+    cout << "3) deleted: " << to_string(head->number) << endl;
     head = head->next;
   }
   node *current = new node;
   current = head;
   if (current != NULL) {
-    while (current->next) {
+    while (current->next != NULL) {
       if (current->next->number == number) {
         deleted = current->next;
+        cout << "4) deleted: " << to_string(deleted->number) << endl;
         current->next = current->next->next;
       }
       else {
@@ -128,6 +135,7 @@ node* LinkedList::deleteValue(int number)
     }
   }
   if (tail->number == number) {
+    cout << "5) deleted: " << to_string(tail->number) << endl;
     tail = current;
   }
   return deleted;
@@ -229,7 +237,24 @@ void LinkedList::showList()
     }
   }
 }
-statistics* LinkedList::getStatistics()
+void LinkedList::minToFront() {
+  if (!isEmpty())
+  {
+    statistics *stats = getStatistics(true);
+    deleteValue(stats->min);
+    prepend(stats->min);
+  }
+}
+void LinkedList::maxToTail() {
+  if (!isEmpty())
+  {
+    statistics *stats = getStatistics(true);
+    deleteValue(stats->max);
+    append(stats->max);
+  }
+}
+
+statistics* LinkedList::getStatistics(bool boolhide)
 {
   statistics *calc = new statistics;
   if (!isEmpty())
@@ -237,6 +262,7 @@ statistics* LinkedList::getStatistics()
     calc->count = 0;
     calc->min = head->number;
     calc->max = head->number;
+    cout << "1) max: " << to_string(calc->max) << endl;
     calc->sum = 0;
     calc->avg = 0;
 
@@ -249,17 +275,21 @@ statistics* LinkedList::getStatistics()
       }
       if (calc->max < current->number) {
         calc->max = current->number;
+        cout << "2) max: " << to_string(calc->max) << endl;
       }
       calc->sum += current->number;
       calc->avg = (calc->sum / calc->count);
 
       current = current->next;
     }
-    cout << " Count: " + to_string(calc->count) << endl;
-    cout << " Sum  : " + to_string(calc->sum) << endl;
-    cout << " Min  : " + to_string(calc->min) << endl;
-    cout << " Max  : " + to_string(calc->max) << endl;
-    cout << " Avg  : " + to_string(calc->avg) << endl;
+    if (!boolhide)
+    {
+      cout << " Count: " + to_string(calc->count) << endl;
+      cout << " Sum  : " + to_string(calc->sum) << endl;
+      cout << " Min  : " + to_string(calc->min) << endl;
+      cout << " Max  : " + to_string(calc->max) << endl;
+      cout << " Avg  : " + to_string(calc->avg) << endl;
+    }
   }
   else
   {
@@ -295,39 +325,39 @@ int main()
   LinkedList list; // add=tail, remove=tail, peek=tail.value (see Stack)
   LinkedList queue; //add=tail, remove=head, peek=head.value
 
-  char choice;
+  int choice;
   int number;
 
   do {
     choice = menu();
     switch (choice)
     {
-      case '1':
+      case 1:
         cout << "Enter a number to insert: ";
         cin >> number;
         list.append(number);
         queue.append(number);
         break;
-      case '2':
+      case 2:
         cout << "List Removed: ";
         cout << list.removeTail() << endl;
         cout << "Queue Removed: ";
         cout << queue.removeHead() << endl;
         break;
-      case '3':
+      case 3:
         cout << "Next value for List: ";
         cout << list.peek() << endl;
         cout << "Next value for Queue: ";
         cout << queue.peekHead() << endl;
         break;
 
-      case '4':
+      case 4:
         cout << "Enter a number to find: ";
         cin >> number;
         cout << "List " << list.contains(number) << endl;
         cout << "Queue " << queue.contains(number) << endl;
         break;
-      case '5':
+      case 5:
         cout << "Enter a number to delete: ";
         cin >> number;
         list.deleteValue(number);
@@ -335,24 +365,38 @@ int main()
         break;
 
 
-      case '7':
+      case 7:
         cout << "List: ";
-        list.getStatistics();
+        list.getStatistics(false);
         cout << "Queue: ";
-        queue.getStatistics();
+        queue.getStatistics(false);
         break;
-      case '8':
+      case 8:
         cout << "List: ";
         list.showList();
         cout << "Queue: ";
         queue.showList();
         break;
+
+      case 9:
+        cout << "minToFront() " << endl;
+        list.minToFront();
+        queue.minToFront();
+        break;
+      case 10:
+        cout << "maxToTail() " << endl;
+        list.maxToTail();
+        queue.maxToTail();
+        break;
+
+
+
       default:
         cout << "Exiting!\n\n\n";
         break;
     }
 
-  } while (choice != '9');
+  } while (choice != 99);
 
   return 0;
 }
