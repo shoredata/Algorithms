@@ -3,6 +3,8 @@
 
 #include "pch.h"
 #include <iostream>
+#include <string>
+
 using namespace std;
 
 struct node {
@@ -10,6 +12,13 @@ struct node {
   node *next;
 };
 
+struct statistics {
+  int min = NULL;
+  int max = NULL;
+  int sum = NULL;
+  float avg = NULL;
+  int count = NULL;
+};
 
 class LinkedList
 {
@@ -30,8 +39,8 @@ public:
 
   node* deleteValue(int number); //remove all nodes of value number
   bool contains(int number); //true if number is a value in the list
+  statistics* getStatistics(); //calculate all stats values for list
 
-  int getLength();
   void showList();
 };
 
@@ -47,7 +56,7 @@ char menu()
   cout << "3. Peek\n";
   cout << "4. Test if Contains #\n";
   cout << "5. Delete All #\n";
-  cout << "7. Count Items\n";
+  cout << "7. Calculate Statistics\n";
   cout << "8. Show List\n";
   cout << "9. Exit\n";
 
@@ -220,22 +229,43 @@ void LinkedList::showList()
     }
   }
 }
-int LinkedList::getLength()
+statistics* LinkedList::getStatistics()
 {
-  int length = 0;
+  statistics *calc = new statistics;
   if (!isEmpty())
   {
+    calc->count = 0;
+    calc->min = head->number;
+    calc->max = head->number;
+    calc->sum = 0;
+    calc->avg = 0;
+
     node *current = head;
     while (current != NULL)
     {
-      //cout << current->number << endl;
+      calc->count++;
+      if (calc->min > current->number) {
+        calc->min = current->number;
+      }
+      if (calc->max < current->number) {
+        calc->max = current->number;
+      }
+      calc->sum += current->number;
+      calc->avg = (calc->sum / calc->count);
+
       current = current->next;
-      length++;
     }
+    cout << " Count: " + to_string(calc->count) << endl;
+    cout << " Sum  : " + to_string(calc->sum) << endl;
+    cout << " Min  : " + to_string(calc->min) << endl;
+    cout << " Max  : " + to_string(calc->max) << endl;
+    cout << " Avg  : " + to_string(calc->avg) << endl;
   }
-  cout << "List Length: ";
-  cout << length << endl;
-  return length;
+  else
+  {
+    calc = NULL;
+  }
+  return calc;
 }
 bool LinkedList::contains(int number)
 {
@@ -306,10 +336,10 @@ int main()
 
 
       case '7':
-        cout << "List Count: ";
-        list.getLength();
-        cout << "Queue Count: ";
-        queue.getLength();
+        cout << "List: ";
+        list.getStatistics();
+        cout << "Queue: ";
+        queue.getStatistics();
         break;
       case '8':
         cout << "List: ";
