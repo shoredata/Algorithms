@@ -30,10 +30,12 @@ public:
     tail = NULL;
   }
   bool isEmpty();
-  void prepend(int number); //by ref because we will be chaning them
+  void push(int number); //for stack
+  void prepend(int number); //to head
   void append(int number); //at end, like array
   int removeHead(); //remove head for queue
   int removeTail(); //at end, like array
+  int pop(); //from head, for stack
   int peek(); //show tail number, like array
   int peekHead(); //show head number for queue
 
@@ -92,6 +94,10 @@ void LinkedList::prepend(int number)
     temp->next = head;
     head = temp;
   }
+}
+void LinkedList::push(int number) 
+{
+  prepend(number);
 }
 void LinkedList::append(int number)
 {
@@ -177,11 +183,11 @@ int LinkedList::removeHead()
   int removed = NULL;
   if (isEmpty())
   {
-    removeTail();
+    return removeTail();
   }
   else if (head == tail)
   {
-    removeTail();
+    return removeTail();
   }
   else
   {
@@ -197,6 +203,11 @@ int LinkedList::removeHead()
   }
   return removed;
 }
+int LinkedList::pop()
+{
+  return removeHead();
+}
+
 int LinkedList::peek()
 {
   if (isEmpty())
@@ -253,7 +264,6 @@ void LinkedList::maxToTail() {
     append(stats->max);
   }
 }
-
 statistics* LinkedList::getStatistics(bool boolhide)
 {
   statistics *calc = new statistics;
@@ -324,6 +334,7 @@ int main()
 {
   LinkedList list; // add=tail, remove=tail, peek=tail.value (see Stack)
   LinkedList queue; //add=tail, remove=head, peek=head.value
+  LinkedList stack; //add=tail, remove=head, peek=head.value
 
   int choice;
   int number;
@@ -337,28 +348,33 @@ int main()
         cin >> number;
         list.append(number);
         queue.append(number);
+        stack.append(number);
         break;
       case 2:
         cout << "List Removed: ";
         cout << list.removeTail() << endl;
         cout << "Queue Removed: ";
         cout << queue.removeHead() << endl;
+        cout << "Stack Removed: ";
+        cout << stack.pop() << endl;
         break;
       case 3:
         cout << "Next value for List: ";
         cout << list.peek() << endl;
         cout << "Next value for Queue: ";
         cout << queue.peekHead() << endl;
+        cout << "Next value for Stack: ";
+        cout << stack.peekHead() << endl;
         break;
 
       case 4:
-        cout << "Enter a number to find: ";
+        cout << "Enter a number to find (not stack): ";
         cin >> number;
         cout << "List " << list.contains(number) << endl;
         cout << "Queue " << queue.contains(number) << endl;
         break;
       case 5:
-        cout << "Enter a number to delete: ";
+        cout << "Enter a number to delete (not stack): ";
         cin >> number;
         list.deleteValue(number);
         queue.deleteValue(number);
@@ -370,11 +386,14 @@ int main()
         list.getStatistics(false);
         cout << "Queue: ";
         queue.getStatistics(false);
+        cout << "Not Stack ";
         break;
       case 8:
         cout << "List: ";
         list.showList();
         cout << "Queue: ";
+        queue.showList();
+        cout << "Stack: ";
         queue.showList();
         break;
 
@@ -382,11 +401,13 @@ int main()
         cout << "minToFront() " << endl;
         list.minToFront();
         queue.minToFront();
+        cout << "Not Stack ";
         break;
       case 10:
         cout << "maxToTail() " << endl;
         list.maxToTail();
         queue.maxToTail();
+        cout << "Not Stack ";
         break;
 
 
