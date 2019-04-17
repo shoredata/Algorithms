@@ -219,16 +219,33 @@ LinkedList.prototype.average = function() {
   return avg;
 }
 
-LinkedList.prototype.find = function(value) {
-  let current = this.head;
-  while(current){
-    if (current.value==value){
-      return current;
-    }
-    current = current.next;
+LinkedList.prototype.find = function({ value = undefined, callback = undefined }) {
+  if (!this.head) {
+    return null;
   }
+
+  let currentNode = this.head;
+
+  while (currentNode) {
+    // If callback is specified then try to find node by callback.
+    if (callback && callback(currentNode.value)) {
+      return currentNode;
+    }
+
+    // If value is specified then try to compare by value..
+    if (value !== undefined && this.compare.equal(currentNode.value, value)) {
+      return currentNode;
+    }
+
+    currentNode = currentNode.next;
+  }
+
   return null;
 }
+
+
+
+
 
 LinkedList.prototype.zipinorder = function(q) {
   // Main function that inserts nodes of linked list q into p at
@@ -311,42 +328,42 @@ LinkedList.prototype.swap = function(val1, val2) {
   findNode(n);
 
   function findNode(n){
-      if(n.value == val1){ node1 = n; }
-      if(n.value == val2){ node2 = n; }
-      //if either of node1, node2 is not set 
-      if(!node1 || !node2){
-          if(n.next === null){
-              console.log("Swap Error: Both nodes not found");
-              return;
-          }
-          findNode(n.next);
-      } else {
-          if(node1.value == node2.value) return;
-          node1.value = node1.value*node2.value;
-          node2.value = node1.value/node2.value;
-          node1.value = node1.value/node2.value;
-          return;
+    if(n.value == val1){ node1 = n; }
+    if(n.value == val2){ node2 = n; }
+    //if either of node1, node2 is not set 
+    if(!node1 || !node2){
+      if(n.next === null){
+        console.log("Swap Error: Both nodes not found");
+        return;
       }
+      findNode(n.next);
+    } else {
+      if(node1.value == node2.value) return;
+      node1.value = node1.value*node2.value;
+      node2.value = node1.value/node2.value;
+      node1.value = node1.value/node2.value;
+      return;
+    }
   }
   return this;
 };
 
 LinkedList.prototype.mintofront = function() {
-    var min = this.min();
-    if (min) {
-        this.delete(min);
-        this.prepend(min);
-    }
-    return;
+  var min = this.min();
+  if (min) {
+    this.delete(min);
+    this.prepend(min);
+  }
+  return;
 }
 
 LinkedList.prototype.maxtoend = function() {
-    var max = this.max();
-    if (max) {
-        this.delete(max);
-        this.append(max);
-    }
-    return;
+  var max = this.max();
+  if (max) {
+    this.delete(max);
+    this.append(max);
+  }
+  return;
 }
 
 LinkedList.prototype.findprev = function(value) {
@@ -372,7 +389,7 @@ LinkedList.prototype.toArray = function() {
   const nodes = [];
   let currentNode = this.head;
   while (currentNode) {
-    nodes.push(currentNode.value);
+    nodes.push(currentNode);
     currentNode = currentNode.next;
   }
   return nodes;
@@ -399,18 +416,18 @@ LinkedList.prototype.traverseReverse = function*() {
     current = current.next;
   }
   while (mylist.length>0) {
-    yield(mylist.pop()); //push,pop=END :: unshift,shift=START
+    yield(mylist.pop());        //push,pop=END :: unshift,shift=START
   }
   return;
 }
 
 
 if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
-    module.exports.LinkedList = LinkedList;
-    module.exports.LinkedListNode = LinkedListNode;
+  module.exports.LinkedList = LinkedList;
+  module.exports.LinkedListNode = LinkedListNode;
 
-    console.log(module.filename);
-    console.log(module.id);
-    console.log(module.exports);
+  console.log(module.filename);
+  console.log(module.id);
+  console.log(module.exports);
 }
 

@@ -40,10 +40,10 @@ Stack.prototype.toArray = function(callback) {
 
 
 if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
-    module.exports.Stack = Stack;
+  module.exports.Stack = Stack;
 
-    console.log(module.filename);
-    console.log(module.id);
-    console.log(module.exports);
+  console.log(module.filename);
+  console.log(module.id);
+  console.log(module.exports);
 }
 
