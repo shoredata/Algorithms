@@ -30,13 +30,18 @@ public:
     tail = NULL;
   }
   bool isEmpty();
-  void push(int number); //for stack
+
+  void push(int number); //head, for stack
   void prepend(int number); //to head
-  void append(int number); //at end, like array
+  void append(int number); //at end
+  void enqueue(int number); //to tail, queue
+
   int removeHead(); //remove head for queue
   int removeTail(); //at end, like array
   int pop(); //from head, for stack
-  int peek(); //show tail number, like array
+  int dequeue(); //from head, for queue
+
+  int peekTail(); //show tail number, like array
   int peekHead(); //show head number for queue
 
   node* deleteValue(int number); //remove all nodes of value number
@@ -83,17 +88,14 @@ void LinkedList::prepend(int number)
   node *temp = new node;
   temp->number = number;
   temp->next = NULL;
-  if (isEmpty()) 
-  {
-    head = temp;
+
+  // If there is no tail yet let's make new node a tail.
+  if (tail == NULL) {
     tail = temp;
-    temp = NULL;
   }
-  else
-  {
-    temp->next = head;
-    head = temp;
-  }
+
+  temp->next = head;
+  head = temp;
 }
 void LinkedList::push(int number) 
 {
@@ -114,6 +116,11 @@ void LinkedList::append(int number)
     tail = temp;
   }
 }
+void LinkedList::enqueue(int number)
+{
+  append(number);
+}
+
 node* LinkedList::deleteValue(int number)
 {
   node *deleted = new node;
@@ -123,16 +130,13 @@ node* LinkedList::deleteValue(int number)
   }
   while (head!=NULL && head->number == number) {
     deleted = head;
-    cout << "3) deleted: " << to_string(head->number) << endl;
     head = head->next;
   }
-  node *current = new node;
-  current = head;
+  node *current = head;
   if (current != NULL) {
     while (current->next != NULL) {
       if (current->next->number == number) {
         deleted = current->next;
-        cout << "4) deleted: " << to_string(deleted->number) << endl;
         current->next = current->next->next;
       }
       else {
@@ -141,7 +145,6 @@ node* LinkedList::deleteValue(int number)
     }
   }
   if (tail->number == number) {
-    cout << "5) deleted: " << to_string(tail->number) << endl;
     tail = current;
   }
   return deleted;
@@ -163,9 +166,8 @@ int LinkedList::removeTail()
   }
   else
   {
-    node *current = new node;
+    node *current = head;
     node *previous = new node;
-    current = head;
     while (current->next != NULL)
     {
       previous = current;
@@ -191,15 +193,10 @@ int LinkedList::removeHead()
   }
   else
   {
-    node *temp = new node;
-    temp = head;
+    node *temp = head;
     head = head->next;
     removed = temp->number;
     delete temp;
-    //node *temp = head;
-    //head = head->next;
-    //removed = temp->number;
-    ////delete temp;
   }
   return removed;
 }
@@ -207,8 +204,12 @@ int LinkedList::pop()
 {
   return removeHead();
 }
+int LinkedList::dequeue()
+{
+  return removeHead();
+}
 
-int LinkedList::peek()
+int LinkedList::peekTail()
 {
   if (isEmpty())
   {
@@ -272,7 +273,6 @@ statistics* LinkedList::getStatistics(bool boolhide)
     calc->count = 0;
     calc->min = head->number;
     calc->max = head->number;
-    cout << "1) max: " << to_string(calc->max) << endl;
     calc->sum = 0;
     calc->avg = 0;
 
@@ -285,7 +285,6 @@ statistics* LinkedList::getStatistics(bool boolhide)
       }
       if (calc->max < current->number) {
         calc->max = current->number;
-        cout << "2) max: " << to_string(calc->max) << endl;
       }
       calc->sum += current->number;
       calc->avg = (calc->sum / calc->count);
@@ -334,7 +333,7 @@ int main()
 {
   LinkedList list; // add=tail, remove=tail, peek=tail.value (see Stack)
   LinkedList queue; //add=tail, remove=head, peek=head.value
-  LinkedList stack; //add=tail, remove=head, peek=head.value
+  LinkedList stack; //add=head, remove=head, peek=head.value
 
   int choice;
   int number;
@@ -347,20 +346,20 @@ int main()
         cout << "Enter a number to insert: ";
         cin >> number;
         list.append(number);
-        queue.append(number);
-        stack.append(number);
+        queue.enqueue(number);
+        stack.push(number);
         break;
       case 2:
         cout << "List Removed: ";
         cout << list.removeTail() << endl;
         cout << "Queue Removed: ";
-        cout << queue.removeHead() << endl;
+        cout << queue.dequeue() << endl;
         cout << "Stack Removed: ";
         cout << stack.pop() << endl;
         break;
       case 3:
         cout << "Next value for List: ";
-        cout << list.peek() << endl;
+        cout << list.peekTail() << endl;
         cout << "Next value for Queue: ";
         cout << queue.peekHead() << endl;
         cout << "Next value for Stack: ";
@@ -394,7 +393,7 @@ int main()
         cout << "Queue: ";
         queue.showList();
         cout << "Stack: ";
-        queue.showList();
+        stack.showList();
         break;
 
       case 9:
