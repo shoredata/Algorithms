@@ -142,16 +142,18 @@ void DoublyLinkedList::prepend(int number)
   node *temp = new node;
   temp->number = number;
   temp->next = NULL;
-  if (isEmpty())
-  {
-    head = temp;
-    tail = temp;
-    temp = NULL;
+
+  // If there is head, then it won't be head anymore.
+  // Therefore, make its previous reference to be new node (new head).
+  // Then mark the new node as head.
+  if (!isEmpty()) {
+    head->previous = temp;
   }
-  else
-  {
-    temp->next = head;
-    head = temp;
+  head = temp;
+
+  // If there is no tail yet let's make new node a tail.
+  if (tail == NULL) {
+    tail = temp;
   }
 }
 void DoublyLinkedList::append(int number)
@@ -166,6 +168,7 @@ void DoublyLinkedList::append(int number)
     temp->number = number;
     temp->next = NULL;
     tail->next = temp;
+    temp->previous = tail; //DLL
     tail = temp;
   }
 }
