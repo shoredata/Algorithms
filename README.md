@@ -19,16 +19,16 @@ the data.
 
 DONE:
 * `B` [Linked List - js](js/LinkedList.js)
-* `B` [Queue - js](js/Queue.js)
 * `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
-
-===============================================================================
-IN PROGRESS:
+* `B` [Queue - js](js/Queue.js)
 * `B` [Stack](js/src/data-structures/stack)
 
 ===============================================================================
-TODO:
+IN PROGRESS:
 * `B` [Hash Table](js/src/data-structures/hash-table)
+
+===============================================================================
+TODO:
 * `B` [Heap](js/src/data-structures/heap) - max and min heap versions
 * `B` [Priority Queue](js/src/data-structures/priority-queue)
 * `A` [Trie](js/src/data-structures/trie)
