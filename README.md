@@ -230,7 +230,7 @@ lowest-cost solution found so far. Normally BFS traversal in combination with DF
 tree is being used.
 
 
-==== NOT IMPLEMENTED ==============================================================================
+==== NOT IMPLEMENTED ====================================================
 
 ## How to use this repository 
 
