@@ -3,7 +3,8 @@
 
 #include "pch.h"
 #include <iostream>
-#include <string>
+#include <string> //to_string
+#include <list> //list
 
 using namespace std;
 
@@ -53,7 +54,75 @@ public:
   void showList();
 };
 
+
+class HashTable
+{
+  int BUCKET;
+  list<int> *table;
+
+public:
+  HashTable(int V);  // Constructor 
+
+  // inserts a key into hash table 
+  void insertItem(int x);
+
+  // deletes a key from hash table 
+  void deleteItem(int key);
+
+  // hash function to map values to key 
+  int hashFunction(int x) {
+    return (x % BUCKET);
+  }
+
+  void displayHash();
+
+};
+
+HashTable::HashTable(int b)
+{
+  this->BUCKET = b;
+  table = new list<int>[BUCKET];
+}
+
+void HashTable::insertItem(int key)
+{
+  int index = hashFunction(key);
+  table[index].push_back(key);
+}
+
+void HashTable::deleteItem(int key)
+{
+  // get the hash index of key 
+  int index = hashFunction(key);
+
+  // find the key in (inex)th list 
+  list <int> ::iterator i;
+  for (i = table[index].begin();
+    i != table[index].end(); i++) {
+    if (*i == key)
+      break;
+  }
+
+  // if key is found in hash table, remove it 
+  if (i != table[index].end())
+    table[index].erase(i);
+}
+
+// function to display hash table 
+void HashTable::displayHash() {
+  for (int i = 0; i < BUCKET; i++) {
+    cout << i;
+    for (auto x : table[i])
+      cout << " --> " << x;
+    cout << endl;
+  }
+}
+
+
+
+//function prototypes
 int menu();
+void DoHashTable();
 
 int menu()
 {
@@ -70,6 +139,9 @@ int menu()
   cout << "8. Show List\n";
   cout << "9. Min to Front\n";
   cout << "10. Max to Tail\n";
+
+  cout << "11. Do Hash Table\n";
+
   cout << "99. Exit\n";
 
   cin >> choice;
@@ -409,6 +481,10 @@ int main()
         cout << "Not Stack ";
         break;
 
+      case 11:
+        cout << "Hash Table:" << endl;
+        DoHashTable();
+        break;
 
 
       default:
@@ -420,6 +496,37 @@ int main()
 
   return 0;
 }
+
+void DoHashTable() {
+  // array that contains keys to be mapped 
+  int a[] = { 15, 11, 27, 8, 12 };
+  int n = sizeof(a) / sizeof(a[0]);
+
+  // insert the keys into the hash table 
+  HashTable ht(7);   // 7 is count of buckets in hash table 
+  for (int i = 0; i < n; i++)
+  {
+    ht.insertItem(a[i]);
+  }
+
+  cout << " 1. Created Hash Table:" << endl;
+  ht.displayHash();
+
+  // delete 12 from hash table 
+  ht.deleteItem(12);
+  cout << " 2. Deleted 12:" << endl;
+  ht.displayHash();
+
+  // delete 15 from hash table 
+  ht.deleteItem(15);
+  cout << " 3. Deleted 15:" << endl;
+  ht.displayHash();
+
+
+
+
+}
+
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu

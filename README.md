@@ -22,14 +22,14 @@ DONE:
 * `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
 * `B` [Queue - js](js/Queue.js)
 * `B` [Stack](js/src/data-structures/stack)
-
-===============================================================================
-IN PROGRESS:
 * `B` [Hash Table](js/src/data-structures/hash-table)
 
 ===============================================================================
-TODO:
+IN PROGRESS:
 * `B` [Heap](js/src/data-structures/heap) - max and min heap versions
+
+===============================================================================
+TODO:
 * `B` [Priority Queue](js/src/data-structures/priority-queue)
 * `A` [Trie](js/src/data-structures/trie)
 * `A` [Tree](js/src/data-structures/tree)
