@@ -18,9 +18,9 @@ the data.
 `B` - Beginner, `A` - Advanced
 
 DONE:
-* `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
+* `B` [Doubly Linked List - js](js/DoublyLinkedList.js)
 * `B` [Hash Table - js](js/HashTable.js)
-* `B` [Heap](js/heap) - max and min heap versions
+* `B` [Heap](js/Heap.js) - max and min heap versions
 * `B` [Linked List - js](js/LinkedList.js)
 * `B` [Queue - js](js/Queue.js)
 * `B` [Stack - js](js/Stack.js)
@@ -39,8 +39,6 @@ IN PROGRESS:
 * `A` [Disjoint Set](js/disjoint-set)
 * `A` [Bloom Filter](js/bloom-filter)
 
-===============================================================================
-TODO:
 
 ## Algorithms
 
@@ -69,6 +67,7 @@ IN PROGRESS:
   * `A` [IP Addresses](js/ip_addresses.js) - valid ipv4 addresses from string of integers
   * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
 * **Arrays**
+  * `B` [Sum of Squares](js/sum_of_squares.js) 
   * `B` [Flood-Fill](js/array_flood_fill.js) 
   * `B` [Array Algorithms](js/arrays.js)
   * `A` [Permutations](js/src/algorithms/sets/permutations) (with and without repetitions)
@@ -255,17 +254,6 @@ npm test
 **Run tests by name**
 ```
 npm test -- 'LinkedList'
-```
-
-**Playground**
-
-You may play with data-structures and algorithms in `./src/playground/playground.js` file and write
-tests for it in `./src/playground/__test__/playground.test.js`.
-
-Then just simply run the following command to test if your playground code works as expected:
-
-```
-npm test -- 'playground'
 ```
 
 ## Useful Information
