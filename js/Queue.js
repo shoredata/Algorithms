@@ -1,70 +1,58 @@
-// import LinkedList from 'LinkedList';
-// the QueueList is a LinkedList as the two data structures are similar
-let LinkedList = require('./LinkedList');
+import LinkedList from './LinkedList';
 
-class QueueList {
+export default class Queue {
   constructor() {
-    this.LinkedList = new LinkedList.LinkedList();
+    // We're going to implement Queue based on LinkedList since the two
+    // structures are quite similar. Namely, they both operate mostly on
+    // the elements at the beginning and the end. Compare enqueue/dequeue
+    // operations of Queue with append/deleteHead operations of LinkedList.
+    this.linkedList = new LinkedList();
   }
-};
 
-/**
- * @return: boolean
- */
-QueueList.prototype.isEmpty = function() {
-  return !this.LinkedList.head;
-}
-
-/**
- * Add element at end of queue (tail of LL)
- */
-QueueList.prototype.enqueue = function(value) {
-  this.LinkedList.append(value);
-}
-
-
-/**
- * @return: value of head element in LL
- */
-QueueList.prototype.peek = function() {
-  if (!this.LinkedList.head.value) {
-    return null;
+  /**
+   * @return {boolean}
+   */
+  isEmpty() {
+    return !this.linkedList.head;
   }
-  return this.LinkedList.head.value;
+
+  /**
+   * Read the element at the front of the queue without removing it.
+   * @return {*}
+   */
+  peek() {
+    if (!this.linkedList.head) {
+      return null;
+    }
+
+    return this.linkedList.head.value;
+  }
+
+  /**
+   * Add a new element to the end of the queue (the tail of the linked list).
+   * This element will be processed after all elements ahead of it.
+   * @param {*} value
+   */
+  enqueue(value) {
+    this.linkedList.append(value);
+  }
+
+  /**
+   * Remove the element at the front of the queue (the head of the linked list).
+   * If the queue is empty, return null.
+   * @return {*}
+   */
+  dequeue() {
+    const removedHead = this.linkedList.deleteHead();
+    return removedHead ? removedHead.value : null;
+  }
+
+  /**
+   * @param [callback]
+   * @return {string}
+   */
+  toString(callback) {
+    // Return string representation of the queue's linked list.
+    return this.linkedList.toString(callback);
+  }
 }
-
-/**
- * @return: {head.value : null}
- */
-QueueList.prototype.dequeue = function() {
-  const removedHead = this.LinkedList.deleteHead();
-  return removedHead ? removedHead.value : null;
-}
-
-/**
- * @param: [callback]
- * @return: {str}
- */
-QueueList.prototype.toString = function(callback) {
-  return this.LinkedList.toString(callback);
-}
-
-// /**
-//  * @return: {length}
-//  */
-// QueueList.prototype.length = function() {
-//   if (!this.LinkedList.head) {
-//     return 0;
-//   }
-//   return this.LinkedList.length();
-// }
-
-
-if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
-    module.exports.QueueList = QueueList;
-
-    console.log(module.filename);
-    console.log(module.id);
-    console.log(module.exports);
-}
-
