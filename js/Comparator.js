@@ -1,4 +1,4 @@
-class Comparator {
+export default class Comparator {
   /**
    * @param {function(a: *, b: *)} [compareFunction] - It may be custom compare function that, let's
    * say may compare custom objects together.
@@ -78,12 +78,4 @@ class Comparator {
     const compareOriginal = this.compare;
     this.compare = (a, b) => compareOriginal(b, a);
   }
-}
-
-if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
-  module.exports.Comparator = Comparator;
-
-  console.log(module.filename);
-  console.log(module.id);
-  console.log(module.exports);
 }
