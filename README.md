@@ -18,29 +18,29 @@ the data.
 `B` - Beginner, `A` - Advanced
 
 DONE:
-* `B` [Linked List - js](js/LinkedList.js)
 * `B` [Doubly Linked List - js ](js/DoublyLinkedList.js)
+* `B` [Hash Table - js](js/HashTable.js)
+* `B` [Heap](js/heap) - max and min heap versions
+* `B` [Linked List - js](js/LinkedList.js)
 * `B` [Queue - js](js/Queue.js)
-* `B` [Stack](js/src/data-structures/stack)
-* `B` [Hash Table](js/src/data-structures/hash-table)
+* `B` [Stack - js](js/Stack.js)
 
 ===============================================================================
 IN PROGRESS:
-* `B` [Heap](js/src/data-structures/heap) - max and min heap versions
+* `B` [Priority Queue](js/PriorityQueue.js)
+* `A` [Trie](js/trie)
+* `A` [Tree](js/tree)
+  * `A` [Binary Search Tree](js/tree/binary-search-tree)
+  * `A` [AVL Tree](js/tree/avl-tree)
+  * `A` [Red-Black Tree](js/tree/red-black-tree)
+  * `A` [Segment Tree](js/tree/segment-tree) - with min/max/sum range queries examples
+  * `A` [Fenwick Tree](js/tree/fenwick-tree) (Binary Indexed Tree)
+* `A` [Graph](js/graph) (both directed and undirected)
+* `A` [Disjoint Set](js/disjoint-set)
+* `A` [Bloom Filter](js/bloom-filter)
 
 ===============================================================================
 TODO:
-* `B` [Priority Queue](js/src/data-structures/priority-queue)
-* `A` [Trie](js/src/data-structures/trie)
-* `A` [Tree](js/src/data-structures/tree)
-  * `A` [Binary Search Tree](js/src/data-structures/tree/binary-search-tree)
-  * `A` [AVL Tree](js/src/data-structures/tree/avl-tree)
-  * `A` [Red-Black Tree](js/src/data-structures/tree/red-black-tree)
-  * `A` [Segment Tree](js/src/data-structures/tree/segment-tree) - with min/max/sum range queries examples
-  * `A` [Fenwick Tree](js/src/data-structures/tree/fenwick-tree) (Binary Indexed Tree)
-* `A` [Graph](js/src/data-structures/graph) (both directed and undirected)
-* `A` [Disjoint Set](js/src/data-structures/disjoint-set)
-* `A` [Bloom Filter](js/src/data-structures/bloom-filter)
 
 ## Algorithms
 

@@ -1,22 +1,7 @@
-// import DoublyLinkedListNode from './DoublyLinkedListNode';
-// import Comparator from '../../utils/comparator/Comparator';
+import DoublyLinkedListNode from './DoublyLinkedListNode';
+import Comparator from './Comparator';
 
-let Comparator = require('./Comparator');
-
-class DoublyLinkedListNode {
-  constructor(value, next = null, previous = null) {
-    this.value = value;
-    this.next = next;
-    this.previous = previous;
-  }
-
-  toString(callback) {
-    return callback ? callback(this.value) : `${this.value}`;
-  }
-}
-
-
-class DoublyLinkedList {
+export default class DoublyLinkedList {
   /**
    * @param {Function} [comparatorFunction]
    */
@@ -27,7 +12,7 @@ class DoublyLinkedList {
     /** @var DoublyLinkedListNode */
     this.tail = null;
 
-    this.compare = new Comparator.Comparator(comparatorFunction);
+    this.compare = new Comparator(comparatorFunction);
   }
 
   /**
@@ -276,14 +261,3 @@ class DoublyLinkedList {
     return this;
   }
 }
-
-
-if ((typeof module !== 'undefined') && (typeof module.exports !== 'undefined')) {
-  module.exports.DoublyLinkedList = DoublyLinkedList;
-  module.exports.DoublyLinkedListNode = DoublyLinkedListNode;
-
-  console.log(module.filename);
-  console.log(module.id);
-  console.log(module.exports);
-}
-
