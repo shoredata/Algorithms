@@ -1,14 +1,10 @@
 import LinkedList from './LinkedList';
-
-// show collisions
-const defaultHashTableSize = 32;
+// force collisions by using small number
+const defaultHashTableSize = 16;
 
 export default class HashTable {
   constructor(hashTableSize = defaultHashTableSize) {
-    // Create hash table of certain size and fill each bucket with empty linked list.
     this.buckets = Array(hashTableSize).fill(null).map(() => new LinkedList());
-
-    // Just to keep track of all actual keys in a fast way.
     this.keys = {};
   }
 
@@ -37,12 +33,9 @@ export default class HashTable {
     this.keys[key] = keyHash;
     const bucketLinkedList = this.buckets[keyHash];
     const node = bucketLinkedList.find({ callback: nodeValue => nodeValue.key === key });
-
     if (!node) {
-      // Insert new node.
       bucketLinkedList.append({ key, value });
     } else {
-      // Update value of existing node.
       node.value.value = value;
     }
   }
@@ -52,18 +45,15 @@ export default class HashTable {
     delete this.keys[key];
     const bucketLinkedList = this.buckets[keyHash];
     const node = bucketLinkedList.find({ callback: nodeValue => nodeValue.key === key });
-
     if (node) {
       return bucketLinkedList.delete(node.value);
     }
-
     return null;
   }
 
   get(key) {
     const bucketLinkedList = this.buckets[this.hash(key)];
     const node = bucketLinkedList.find({ callback: nodeValue => nodeValue.key === key });
-
     return node ? node.value.value : undefined;
   }
 

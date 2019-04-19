@@ -71,7 +71,6 @@ export default class Heap {
 
     const item = this.heapContainer[0];
 
-    // Move the last element from the end to the head.
     this.heapContainer[0] = this.heapContainer.pop();
     this.heapifyDown();
 
@@ -85,27 +84,14 @@ export default class Heap {
   }
 
   remove(item, comparator = this.compare) {
-    // Find number of items to remove.
     const numberOfItemsToRemove = this.find(item, comparator).length;
-
     for (let iteration = 0; iteration < numberOfItemsToRemove; iteration += 1) {
-      // We need to find item index to remove each time after removal since
-      // indices are being changed after each heapify process.
       const indexToRemove = this.find(item, comparator).pop();
-
-      // If we need to remove last child in the heap then just remove it.
-      // There is no need to heapify the heap afterwards.
       if (indexToRemove === (this.heapContainer.length - 1)) {
         this.heapContainer.pop();
       } else {
-        // Move last element in heap to the vacant (removed) position.
         this.heapContainer[indexToRemove] = this.heapContainer.pop();
-
-        // Get parent.
         const parentItem = this.parent(indexToRemove);
-
-        // If there is no parent or parent is in correct order with the node
-        // we're going to delete then heapify down. Otherwise heapify up.
         if (
           this.hasLeftChild(indexToRemove)
           && (
@@ -148,7 +134,6 @@ export default class Heap {
     // in the heap container and lift it up until it is in the correct
     // order with respect to its parent element.
     let currentIndex = customStartIndex || this.heapContainer.length - 1;
-
     while (
       this.hasParent(currentIndex)
       && !this.pairIsInCorrectOrder(this.parent(currentIndex), this.heapContainer[currentIndex])
@@ -164,7 +149,6 @@ export default class Heap {
     // Do the same for next children after swap.
     let currentIndex = customStartIndex;
     let nextIndex = null;
-
     while (this.hasLeftChild(currentIndex)) {
       if (
         this.hasRightChild(currentIndex)
@@ -187,19 +171,10 @@ export default class Heap {
     }
   }
 
-  /**
-   * Checks if pair of heap elements is in correct order.
-   * For MinHeap the first element must be always smaller or equal.
-   * For MaxHeap the first element must be always bigger or equal.
-   *
-   * @param {*} firstElement
-   * @param {*} secondElement
-   * @return {boolean}
-   */
-  /* istanbul ignore next */
+  // For MinHeap the first element must be always smaller or equal.
+  // For MaxHeap the first element must be always bigger or equal.
   pairIsInCorrectOrder(firstElement, secondElement) {
-    throw new Error(`
-      You have to implement heap pair comparision method
+    throw new Error(`Implement heap pair comparision method
       for ${firstElement} and ${secondElement} values.
     `);
   }
