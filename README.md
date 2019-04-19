@@ -201,7 +201,6 @@ algorithm is an abstraction higher than a computer program.
   * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
   * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
   * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence)
-
   * `B` [Jump Game](js/src/algorithms/uncategorized/jump-game)
   * `B` [Unique Paths](js/src/algorithms/uncategorized/unique-paths)
   * `B` [Rain Terraces](js/src/algorithms/uncategorized/rain-terraces) - trapping rain water problem
