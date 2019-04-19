@@ -19,9 +19,11 @@ the data.
 
 DONE:
 * `B` [Doubly Linked List - js](js/DoublyLinkedList.js)
+* `B` [Doubly Linked List - C++](cpp/vs/DoublyLinkedList)
 * `B` [Hash Table - js](js/HashTable.js)
-* `B` [Heap](js/Heap.js) - max and min heap versions
+* `B` [Heap - js](js/Heap.js) - max and min heap versions
 * `B` [Linked List - js](js/LinkedList.js)
+* `B` [Linked List - C++](cpp/vs/LinkedList)
 * `B` [Queue - js](js/Queue.js)
 * `B` [Stack - js](js/Stack.js)
 
@@ -183,7 +185,6 @@ algorithm is an abstraction higher than a computer program.
 * **Divide and Conquer** - divide the problem into smaller parts and then solve those parts
   * `B` [Binary Search](js/binary-search.js)
   * `B` [Tower of Hanoi](js/hanoi.js)
-
   * `B` [Pascal's Triangle](js/src/algorithms/math/pascal-triangle)
   * `B` [Euclidean Algorithm](js/src/algorithms/math/euclidean-algorithm) - calculate the Greatest Common Divisor (GCD)
   * `B` [Merge Sort](js/src/algorithms/sorting/merge-sort)
