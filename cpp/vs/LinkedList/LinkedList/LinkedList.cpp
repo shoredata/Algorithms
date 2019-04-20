@@ -9,7 +9,6 @@ struct node {
   int number;
   node *next;
 };
-
 struct statistics {
   int min = NULL;
   int max = NULL;
@@ -17,6 +16,8 @@ struct statistics {
   float avg = NULL;
   int count = NULL;
 };
+
+
 
 class LinkedList
 {
@@ -50,101 +51,6 @@ public:
 
   void showList();
 };
-
-
-class HashTable
-{
-  int BUCKET;
-  list<int> *table;
-
-public:
-  HashTable(int V);  // Constructor 
-
-  // inserts a key into hash table 
-  void insertItem(int x);
-
-  // deletes a key from hash table 
-  void deleteItem(int key);
-
-  // hash function to map values to key 
-  int hashFunction(int x) {
-    return (x % BUCKET);
-  }
-
-  void displayHash();
-
-};
-
-HashTable::HashTable(int b)
-{
-  this->BUCKET = b;
-  table = new list<int>[BUCKET];
-}
-
-void HashTable::insertItem(int key)
-{
-  int index = hashFunction(key);
-  table[index].push_back(key);
-}
-
-void HashTable::deleteItem(int key)
-{
-  // get the hash index of key 
-  int index = hashFunction(key);
-
-  // find the key in (inex)th list 
-  list <int> ::iterator i;
-  for (i = table[index].begin();
-    i != table[index].end(); i++) {
-    if (*i == key)
-      break;
-  }
-
-  // if key is found in hash table, remove it 
-  if (i != table[index].end())
-    table[index].erase(i);
-}
-
-// function to display hash table 
-void HashTable::displayHash() {
-  for (int i = 0; i < BUCKET; i++) {
-    cout << i;
-    for (auto x : table[i])
-      cout << " --> " << x;
-    cout << endl;
-  }
-}
-
-
-
-//function prototypes
-int menu();
-void DoHashTable();
-
-int menu()
-{
-  int choice;
-
-  cout << "Menu\n";
-  cout << "1. Add Item\n";
-  cout << "2. Remove\n";
-  cout << "3. Peek\n";
-  cout << "4. Test if Contains #\n";
-  cout << "5. Delete All #\n";
-
-  cout << "7. Calculate Statistics\n";
-  cout << "8. Show List\n";
-  cout << "9. Min to Front\n";
-  cout << "10. Max to Tail\n";
-
-  cout << "11. Do Hash Table\n";
-
-  cout << "99. Exit\n";
-
-  cin >> choice;
-  return choice;
-}
-
 bool LinkedList::isEmpty()
 {
   if (head == NULL)
@@ -166,7 +72,7 @@ void LinkedList::prepend(int number)
   temp->next = head;
   head = temp;
 }
-void LinkedList::push(int number) 
+void LinkedList::push(int number)
 {
   prepend(number);
 }
@@ -197,7 +103,7 @@ node* LinkedList::deleteValue(int number)
   if (isEmpty()) {
     return deleted;
   }
-  while (head!=NULL && head->number == number) {
+  while (head != NULL && head->number == number) {
     deleted = head;
     head = head->next;
   }
@@ -394,6 +300,106 @@ bool LinkedList::contains(int number)
   cout << "Contains: " << number << " " + bcontains << endl;
   return bcontains;
 }
+
+class Queue
+{
+public:
+  Queue(); //constructor
+
+  void enqueue(int number); //add item to queue
+  int dequeue();            //remove next item from queue
+  int peek();               //return value of next item
+};
+
+
+
+class HashTable
+{
+  int BUCKET;
+  list<int> *table;
+
+public:
+  HashTable(int V);  // Constructor 
+
+  // inserts a key into hash table 
+  void insertItem(int x);
+
+  // deletes a key from hash table 
+  void deleteItem(int key);
+
+  // hash function to map values to key 
+  int hashFunction(int x) {
+    return (x % BUCKET);
+  }
+
+  void displayHash();
+
+};
+HashTable::HashTable(int b)
+{
+  this->BUCKET = b;
+  table = new list<int>[BUCKET];
+}
+void HashTable::insertItem(int key)
+{
+  int index = hashFunction(key);
+  table[index].push_back(key);
+}
+void HashTable::deleteItem(int key)
+{
+  // get the hash index of key 
+  int index = hashFunction(key);
+
+  // find the key in (inex)th list 
+  list <int> ::iterator i;
+  for (i = table[index].begin();
+    i != table[index].end(); i++) {
+    if (*i == key)
+      break;
+  }
+
+  // if key is found in hash table, remove it 
+  if (i != table[index].end())
+    table[index].erase(i);
+}
+void HashTable::displayHash() {
+  for (int i = 0; i < BUCKET; i++) {
+    cout << i;
+    for (auto x : table[i])
+      cout << " --> " << x;
+    cout << endl;
+  }
+}
+
+
+//function prototypes
+int menu();
+void DoHashTable();
+
+int menu()
+{
+  int choice;
+
+  cout << "Menu\n";
+  cout << "1. Add Item\n";
+  cout << "2. Remove\n";
+  cout << "3. Peek\n";
+  cout << "4. Test if Contains #\n";
+  cout << "5. Delete All #\n";
+
+  cout << "7. Calculate Statistics\n";
+  cout << "8. Show List\n";
+  cout << "9. Min to Front\n";
+  cout << "10. Max to Tail\n";
+
+  cout << "11. Do Hash Table\n";
+
+  cout << "99. Exit\n";
+
+  cin >> choice;
+  return choice;
+}
+
 
 
 
