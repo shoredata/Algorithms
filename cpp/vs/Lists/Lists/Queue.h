@@ -12,3 +12,9 @@ public:
   bool isEmpty() { return LinkedList::isEmpty(); };
 };
 
+Queue::Queue()
+{
+}
+Queue::~Queue()
+{
+}

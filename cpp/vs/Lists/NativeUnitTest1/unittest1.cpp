@@ -9,7 +9,7 @@
 #include "../Lists/LinkedList.h"
 #include "../Lists/LinkedList.cpp"
 #include "../Lists/Queue.h"
-#include "../Lists/Queue.cpp"
+#include "../Lists/Stack.h"
 
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -163,6 +163,40 @@ namespace ListTests
     }
 
   };
+
+  TEST_CLASS(StackClassTests)
+  {
+  public:
+
+    TEST_METHOD(EmptyQueue)
+    {
+      Stack stack;
+      Assert::AreEqual(true, stack.isEmpty(), L"isEmpty() Invalid after Constructor");
+      stack.push(1);
+      Assert::AreEqual(false, stack.isEmpty(), L"isEmpty() Invalid after enqueue()");
+      stack.pop();
+      Assert::AreEqual(true, stack.isEmpty(), L"isEmpty() Invalid after pop() of only node");
+    }
+
+    TEST_METHOD(ModifyQueueItems)
+    {
+      Stack stack;
+      for (int idx = 0; idx < 10; idx++) {
+        stack.push(idx);
+      }
+      Assert::AreEqual(9, stack.peek(), L"peek() Value Invalid");
+
+      stack.pop();
+      Assert::AreEqual(8, stack.peek(), L"peek() Value Invalid");
+
+      for (int idx = 0; idx < 9; idx++) {
+        stack.pop();
+      }
+      Assert::AreEqual(true, stack.isEmpty(), L"Removed All Items Stack Not Empty");
+    }
+
+  };
+
 
 
 }
