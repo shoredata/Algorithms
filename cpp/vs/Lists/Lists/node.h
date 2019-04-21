@@ -8,5 +8,7 @@ public:
   Node* next;
   Node* prev;
   int value;
+
+  friend class TEST_CLASS;
 };
 
