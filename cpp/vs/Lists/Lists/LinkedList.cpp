@@ -87,7 +87,7 @@ int LinkedList::deleteTail()
   {
     deleted = head->value;
     delete head;
-    delete tail;
+    //delete tail;  //there is only 1 thing, you cannot delte it twice
     head = NULL;
     tail = NULL;
   }
