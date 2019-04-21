@@ -8,6 +8,8 @@
 #include "../Lists/node.cpp"
 #include "../Lists/LinkedList.h"
 #include "../Lists/LinkedList.cpp"
+#include "../Lists/Queue.h"
+#include "../Lists/Queue.cpp"
 
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
@@ -124,6 +126,40 @@ namespace ListTests
       list.insertHead(-4);
       stringcurrent = "List: { -4, 1, 3 }";
       Assert::AreEqual(stringcurrent, list.returnString(), L"Three Items LinkedList toString() Invalid");
+    }
+
+  };
+
+
+  TEST_CLASS(QueueClassTests)
+  {
+  public:
+
+    TEST_METHOD(EmptyQueue)
+    {
+      Queue queue;
+      Assert::AreEqual(true, queue.isEmpty(), L"isEmpty() Invalid after Constructor");
+      queue.enqueue(1);
+      Assert::AreEqual(false, queue.isEmpty(), L"isEmpty() Invalid after enqueue()");
+      queue.dequeue();
+      Assert::AreEqual(true, queue.isEmpty(), L"isEmpty() Invalid after dequeue() of only node");
+    }
+
+    TEST_METHOD(ModifyQueueItems)
+    {
+      Queue queue;
+      for (int idx = 0; idx < 10; idx++) {
+        queue.enqueue(idx);
+      }
+      Assert::AreEqual(0, queue.peek(), L"peek() Value Invalid");
+
+      queue.dequeue();
+      Assert::AreEqual(1, queue.peek(), L"peek() Value Invalid");
+
+      for (int idx = 0; idx < 9; idx++) {
+        queue.dequeue();
+      }
+      Assert::AreEqual(true, queue.isEmpty(), L"Removed All Items Queue Not Empty");
     }
 
   };
