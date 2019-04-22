@@ -51,14 +51,14 @@ a set of rules that precisely define a sequence of operations.
 
 
 DONE:
-
+  * `B` [Greatest Common Factor - js](js/GreatestCommonFactor.js) 
+  * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
+  
 ===============================================================================
 IN PROGRESS:
 * **Integers**
   * `B` [Integer Algorithms](js/integers.js)
-  * `B` [Greatest Common Factor](js/greatest_common_factor.js) 
   * `B` [Factorial](js/factorial.js) 
-  * `B` [Sum of Squares](js/sum_of_squares.js) 
   * `B` [Tarai Function](js/tarai.js) 
   * `B` [Sigma Function](js/sigma.js) 
   * `B` [Fibonacci Number](js/fibonacci.js) - all versions
