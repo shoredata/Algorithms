@@ -53,6 +53,16 @@ a set of rules that precisely define a sequence of operations.
 DONE:
   * `B` [Greatest Common Factor - js](js/GreatestCommonFactor.js) 
   * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
+* **Searches**
+  * `B` [Binary Searches - js](js/BinarySearch.js) - searches in sorted array
+* **Arrays**
+  * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
+  * `B` [Flood-Fill - js](js/FloodFill.js) 
+* **Linked Lists**
+  * `B` [Straight Traversal - js](js/test/LinkedList-Traversal.test.js)
+  * `B` [Reverse Traversal - js](js/test/LinkedList-ReverseTraversal.test.js)
+* **Divide and Conquer** - divide the problem into smaller parts and then solve those parts
+  * `B` [Binary Searches - js](js/BinarySearch.js) - searches in sorted array
   
 ===============================================================================
 IN PROGRESS:
@@ -69,20 +79,15 @@ IN PROGRESS:
   * `A` [IP Addresses](js/ip_addresses.js) - valid ipv4 addresses from string of integers
   * `A` [Longest Common Substring](js/src/algorithms/string/longest-common-substring)
 * **Arrays**
-  * `B` [Sum of Squares](js/sum_of_squares.js) 
-  * `B` [Flood-Fill](js/array_flood_fill.js) 
   * `B` [Array Algorithms](js/arrays.js)
   * `A` [Permutations](js/src/algorithms/sets/permutations) (with and without repetitions)
   * `A` [Combinations](js/src/algorithms/sets/combinations) (with and without repetitions)
   * `A` [Longest Common Subsequence](js/src/algorithms/sets/longest-common-subsequence) (LCS)
   * `A` [Longest Increasing Subsequence](js/src/algorithms/sets/longest-increasing-subsequence)
   * `A` [Shortest Common Supersequence](js/src/algorithms/sets/shortest-common-supersequence) (SCS)
-* **Searches**
-  * `B` [Binary Search](js/binary-search.js) - search in sorted array
-* **Linked Lists**
-  * `B` [Straight Traversal](js/src/algorithms/linked-list/traversal)
-  * `B` [Reverse Traversal](js/src/algorithms/linked-list/reverse-traversal)
 * **Misc**
+  * `B` [Tower of Hanoi](js/hanoi.js)
+* **Divide and Conquer** - divide the problem into smaller parts and then solve those parts
   * `B` [Tower of Hanoi](js/hanoi.js)
 
 ===============================================================================
@@ -183,8 +188,6 @@ algorithm is an abstraction higher than a computer program.
   * `A` [Prim’s Algorithm](js/src/algorithms/graph/prim) - finding Minimum Spanning Tree (MST) for weighted undirected graph
   * `A` [Kruskal’s Algorithm](js/src/algorithms/graph/kruskal) - finding Minimum Spanning Tree (MST) for weighted undirected graph
 * **Divide and Conquer** - divide the problem into smaller parts and then solve those parts
-  * `B` [Binary Search](js/binary-search.js)
-  * `B` [Tower of Hanoi](js/hanoi.js)
   * `B` [Pascal's Triangle](js/src/algorithms/math/pascal-triangle)
   * `B` [Euclidean Algorithm](js/src/algorithms/math/euclidean-algorithm) - calculate the Greatest Common Divisor (GCD)
   * `B` [Merge Sort](js/src/algorithms/sorting/merge-sort)

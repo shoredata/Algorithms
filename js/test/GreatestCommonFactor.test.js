@@ -1,4 +1,4 @@
-import greatestCommonFactor from '../greatestCommonFactor';
+import greatestCommonFactor from '../GreatestCommonFactor';
 
 describe('greatestCommonFactor', () => {
   it('should return greatest common factor for both numbers', () => {
