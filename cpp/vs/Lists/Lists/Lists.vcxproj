@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="pch.h" />
@@ -158,6 +159,7 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DoublyLinkedList.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="Lists.cpp" />
     <ClCompile Include="node.cpp" />

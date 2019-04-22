@@ -4,17 +4,10 @@ class Stack :
   private LinkedList
 {
 public:
-  Stack();
-  ~Stack();
+  Stack() {};
+  ~Stack() {};
   void push(int number) { LinkedList::insertHead(number); };
-  int pop() { return LinkedList::deleteHead(); };
+  int pop() { return LinkedList::removeHead(); };
   int peek() { return LinkedList::peekHead(); };
   bool isEmpty() { return LinkedList::isEmpty(); };
 };
-
-Stack::Stack()
-{
-}
-Stack::~Stack()
-{
-}

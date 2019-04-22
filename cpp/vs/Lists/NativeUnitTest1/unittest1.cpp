@@ -10,23 +10,25 @@
 #include "../Lists/LinkedList.cpp"
 #include "../Lists/Queue.h"
 #include "../Lists/Stack.h"
+#include "../Lists/DoublyLinkedList.h"
+#include "../Lists/DoublyLinkedList.cpp"
 
 using namespace std;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 
 namespace ListTests
-{		
-	TEST_CLASS(NodeClassTests)
-	{
-	public:
-		
+{
+  TEST_CLASS(NodeClassTests)
+  {
+  public:
+
     TEST_METHOD(NodeDefaultValue)
-		{
+    {
       Node* temp = new Node();
       Assert::AreNotEqual(0, temp->value, L"Unexpected Value");
       delete temp;
-		}
+    }
 
     TEST_METHOD(NodeAssignedValue)
     {
@@ -53,7 +55,6 @@ namespace ListTests
 
   };
 
-
   TEST_CLASS(LinkedListClassTests)
   {
   public:
@@ -64,7 +65,7 @@ namespace ListTests
       Assert::AreEqual(true, list.isEmpty(), L"isEmpty() Invalid after Constructor");
       list.insertHead(1);
       Assert::AreEqual(false, list.isEmpty(), L"isEmpty() Invalid after addHead()");
-      list.deleteHead();
+      list.removeHead();
       Assert::AreEqual(true, list.isEmpty(), L"isEmpty() Invalid after removeHead() of only node");
     }
 
@@ -81,15 +82,43 @@ namespace ListTests
       }
       Assert::AreEqual(8, list.head->value, L"Head Value Invalid");
       Assert::AreEqual(9, list.tail->value, L"Tail Value Invalid");
-      Assert::AreEqual(8, list.deleteHead(), L"deleteHead Value Invalid");
-      Assert::AreEqual(9, list.deleteTail(), L"deleteTail Value Invalid");
+      Assert::AreEqual(8, list.removeHead(), L"removeHead Value Invalid");
+      Assert::AreEqual(9, list.removeTail(), L"removeTail Value Invalid");
       Assert::AreEqual(6, list.head->value, L"Head Value Invalid");
       Assert::AreEqual(7, list.tail->value, L"Tail Value Invalid");
 
       for (int idx = 0; idx < 8; idx++) {
-        list.deleteHead();
+        list.removeHead();
       }
       Assert::AreEqual(true, list.isEmpty(), L"Removed All Items List Not Empty");
+      cout << list.returnString() << flush;
+    }
+
+
+    TEST_METHOD(RemoveIdenticalLinkedListItems)
+    {
+      LinkedList list;
+      list.insertHead(0);
+      for (int idx = 0; idx < 10; idx++) {
+        list.insertHead(1);
+      }
+      Assert::AreEqual(1, list.head->value, L"Head Value Invalid");
+      Assert::AreEqual(0, list.tail->value, L"Tail Value Invalid");
+
+      Assert::AreEqual(1, list.deleteValue(1), L"DeleteValue Value Invalid");
+
+      Assert::AreEqual(0, list.head->value, L"after deleteValue Head Value Invalid");
+      Assert::AreEqual(0, list.tail->value, L"after deleteValue Tail Value Invalid");
+
+      //Assert::AreEqual(list.head->toString(), list.tail->toString(), L"after deleteValue Head and Tail are different");
+      //cout << "Head: " << list.head->toString() << flush;
+      //cout << "Tail: " << list.tail->toString() << flush;
+
+      Logger::WriteMessage("My message string"); //this is only visible if you run the test via DEBUG!!!
+
+      list.removeHead();
+      Assert::AreEqual(true, list.isEmpty(), L"Removed All Items List Not Empty");
+
       cout << list.returnString() << flush;
     }
 
@@ -102,9 +131,9 @@ namespace ListTests
       Assert::AreEqual(18, list.peekHead(), L"peekTail Value Invalid");
       list.insertTail(19733);
       Assert::AreEqual(18, list.peekHead(), L"peekHead Value Invalid");
-      Assert::AreEqual(19733, list.deleteTail(), L"peekTail Value Invalid");
-      list.deleteHead();
-      list.deleteHead();
+      Assert::AreEqual(19733, list.removeTail(), L"peekTail Value Invalid");
+      list.removeHead();
+      list.removeHead();
       Assert::AreEqual(NULL, list.peekHead(), L"peekHead Value Invalid");
     }
 
@@ -129,7 +158,6 @@ namespace ListTests
     }
 
   };
-
 
   TEST_CLASS(QueueClassTests)
   {
@@ -197,6 +225,112 @@ namespace ListTests
 
   };
 
+
+
+
+  TEST_CLASS(DoublyLinkedListClassTests)
+  {
+  public:
+
+    //we need to do the standard LL tests as we redfine most fo the root methods
+
+    TEST_METHOD(EmptyDoublyLinkedList)
+    {
+      DoublyLinkedList list;
+      Assert::AreEqual(true, list.isEmpty(), L"isEmpty() Invalid after Constructor");
+      list.insertHead(1);
+      Assert::AreEqual(false, list.isEmpty(), L"isEmpty() Invalid after addHead()");
+      list.removeHead();
+      Assert::AreEqual(true, list.isEmpty(), L"isEmpty() Invalid after removeHead() of only node");
+    }
+
+    TEST_METHOD(ModifyDoublyLinkedListItems)
+    {
+      DoublyLinkedList list;
+      for (int idx = 0; idx < 10; idx++) {
+        if (idx % 2 == 0) {
+          list.insertHead(idx);
+        }
+        else {
+          list.insertTail(idx);
+        }
+      }
+      Assert::AreEqual(8, list.head->value, L"Head Value Invalid");
+      Assert::AreEqual(9, list.tail->value, L"Tail Value Invalid");
+      Assert::AreEqual(8, list.removeHead(), L"removeHead Value Invalid");
+      Assert::AreEqual(9, list.removeTail(), L"removeTail Value Invalid");
+      Assert::AreEqual(6, list.head->value, L"Head Value Invalid");
+      Assert::AreEqual(7, list.tail->value, L"Tail Value Invalid");
+
+      for (int idx = 0; idx < 8; idx++) {
+        list.removeHead();
+      }
+      Assert::AreEqual(true, list.isEmpty(), L"Removed All Items List Not Empty");
+      cout << list.returnString() << flush;
+    }
+
+
+    TEST_METHOD(RemoveIdenticalDoublyLinkedListItems)
+    {
+      DoublyLinkedList list;
+      list.insertHead(0);
+      for (int idx = 0; idx < 10; idx++) {
+        list.insertHead(1);
+      }
+      Assert::AreEqual(1, list.head->value, L"Head Value Invalid");
+      Assert::AreEqual(0, list.tail->value, L"Tail Value Invalid");
+
+      Assert::AreEqual(1, list.deleteValue(1), L"DeleteValue Value Invalid");
+
+      Assert::AreEqual(0, list.head->value, L"after deleteValue Head Value Invalid");
+      Assert::AreEqual(0, list.tail->value, L"after deleteValue Tail Value Invalid");
+
+      Logger::WriteMessage("My message string"); //this is only visible if you run the test via DEBUG!!!
+
+      list.removeHead();
+      Assert::AreEqual(true, list.isEmpty(), L"Removed All Items List Not Empty");
+
+      cout << list.returnString() << flush;
+    }
+
+
+    TEST_METHOD(PeekDoublyLinkedListValues)
+    {
+      DoublyLinkedList list;
+      list.insertHead(18);
+      Assert::AreEqual(18, list.peekHead(), L"peekHead Value Invalid");
+      Assert::AreEqual(18, list.peekHead(), L"peekTail Value Invalid");
+      list.insertTail(19733);
+      Assert::AreEqual(18, list.peekHead(), L"peekHead Value Invalid");
+      Assert::AreEqual(19733, list.removeTail(), L"peekTail Value Invalid");
+      list.removeHead();
+      list.removeHead();
+      Assert::AreEqual(NULL, list.peekHead(), L"peekHead Value Invalid");
+    }
+
+    TEST_METHOD(DoublyLinkedListToString)
+    {
+      DoublyLinkedList list;
+      string stringblank = "", stringempty = "List: { empty }";
+      Assert::AreNotEqual(stringblank, list.returnString(), L"Default Empty LinkedList toString() Invalid");
+      Assert::AreEqual(stringempty, list.returnString(), L"Default Empty LinkedList toString() Invalid");
+
+      list.insertTail(1);
+      string stringcurrent = "List: { 1 }";
+      Assert::AreEqual(stringcurrent, list.returnString(), L"Single Items LinkedList toString() Invalid");
+
+      list.insertTail(3);
+      stringcurrent = "List: { 1, 3 }";
+      Assert::AreEqual(stringcurrent, list.returnString(), L"Two Items LinkedList toString() Invalid");
+
+      list.insertHead(-4);
+      stringcurrent = "List: { -4, 1, 3 }";
+      Assert::AreEqual(stringcurrent, list.returnString(), L"Three Items LinkedList toString() Invalid");
+    }
+
+
+
+  };
 
 
 }

@@ -32,13 +32,13 @@ int main()
   cout << "deleted.value = " << to_string(deleted) << endl;
   cout << list.returnString() << endl;
 
-  cout << "deleteHead: ";
-  deleted = list.deleteHead();
+  cout << "removeHead: ";
+  deleted = list.removeHead();
   cout << "deleted.value = " << to_string(deleted) << endl;
   cout << list.returnString() << endl;
 
-  cout << "deleteTail: ";
-  deleted = list.deleteTail();
+  cout << "removeTail: ";
+  deleted = list.removeTail();
   cout << "deleted.value = " << to_string(deleted) << endl;
   cout << list.returnString() << endl;
 

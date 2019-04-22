@@ -56,16 +56,16 @@ void LinkedList::insertTail(int number)
   }
 }
 
-int LinkedList::deleteHead()
+int LinkedList::removeHead()
 {
   int deleted = NULL;
   if (isEmpty())
   {
-    return deleteTail();
+    return removeTail();
   }
   else if (head == tail)
   {
-    return deleteTail();
+    return removeTail();
   }
   else
   {
@@ -76,7 +76,7 @@ int LinkedList::deleteHead()
   }
   return deleted;
 }
-int LinkedList::deleteTail()
+int LinkedList::removeTail()
 {
   int deleted = NULL;
   if (isEmpty())
@@ -182,3 +182,4 @@ string LinkedList::returnString()
   }
   return sReturn;
 }
+
