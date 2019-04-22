@@ -51,6 +51,8 @@ a set of rules that precisely define a sequence of operations.
 
 
 DONE:
+* **Integers**
+  * `B` [Factorial - js](js/Factorial.js) 
   * `B` [Greatest Common Factor - js](js/GreatestCommonFactor.js) 
   * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
 * **Searches**
@@ -68,7 +70,6 @@ DONE:
 IN PROGRESS:
 * **Integers**
   * `B` [Integer Algorithms](js/integers.js)
-  * `B` [Factorial](js/factorial.js) 
   * `B` [Tarai Function](js/tarai.js) 
   * `B` [Sigma Function](js/sigma.js) 
   * `B` [Fibonacci Number](js/fibonacci.js) - all versions
