@@ -55,7 +55,8 @@ DONE:
   * `B` [Factorial - js](js/Factorial.js) 
   * `B` [Greatest Common Factor - js](js/GreatestCommonFactor.js) 
   * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
-* **Searches**
+* * `B` [Sigma Function - js](js/Sigma.js) 
+  **Searches**
   * `B` [Binary Searches - js](js/BinarySearch.js) - searches in sorted array
 * **Arrays**
   * `B` [Sum of Squares - js](js/Statistics/SumOfSquares.js) 
@@ -71,7 +72,6 @@ IN PROGRESS:
 * **Integers**
   * `B` [Integer Algorithms](js/integers.js)
   * `B` [Tarai Function](js/tarai.js) 
-  * `B` [Sigma Function](js/sigma.js) 
   * `B` [Fibonacci Number](js/fibonacci.js) - all versions
 * **Strings**
   * `B` [String Permutations](js/string_permutations.js)
