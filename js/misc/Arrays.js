@@ -1,7 +1,22 @@
 // https://repl.it/@bearfish47x/Javascript-Algorithms-Arrays-v1
 
+// module.exports = {
+//   function getLargestArrayElement(),
+//   function removeDuplicatesFromArray(),
+//   function pushFront()
+// }
+
+
+export default { 
+  getLargestArrayElement,
+  removeDuplicatesFromArray
+}
+
 // console.log("ARRAYS ==============");
 export function getLargestArrayElement(x){
+  if (x.length==0 || x == null) {
+    return undefined;
+  }
   var max = x[0];
   for(var i=1; i<x.length; i++) {
     if (max < x[i]){
@@ -14,7 +29,10 @@ export function getLargestArrayElement(x){
 // console.log("");
 
 
-export function RemoveDuplicatesFromArray(arr) {
+export function removeDuplicatesFromArray(arr) {
+    if (arr.length==0 || arr==null) {
+      return [];
+    }
     var setnodupes = new Set(); 
     var arrremove = [];
     for(var i=0; i<arr.length; i++) {
@@ -37,7 +55,7 @@ export function RemoveDuplicatesFromArray(arr) {
 // console.log("");
 
 
-export function PushFront(arr,val) {
+export function pushFront(arr,val) {
     InsertItemInArrayAtPosition(arr,0,val);
     return arr;
 }
