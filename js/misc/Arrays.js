@@ -9,7 +9,27 @@
 
 export default { 
   getLargestArrayElement,
-  removeDuplicatesFromArray
+  removeDuplicatesFromArray,
+
+  pushFront,
+  InsertItemInArrayAtPosition,
+  GetArrayMin,
+  GetArrayMax,
+  GetArraySum,
+  GetArrayAverage,
+  ZipArrays,
+  
+  CountAndPrintGreater,
+  ReplaceNegatives,
+  RemoveArrayItemsInPlace,
+  RemoveArrayItem,
+  PopFront,
+  MoveArrayForward,
+  ReverseArray,  
+  RepeatArraysItemsInPlace,
+  DoubleEachArrayValue,
+  SquareEachArrayValue
+
 }
 
 // console.log("ARRAYS ==============");

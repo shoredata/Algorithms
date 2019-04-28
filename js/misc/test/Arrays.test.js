@@ -21,3 +21,13 @@ describe('removeDuplicatesFromArray()', () => {
   });
 });
 
+
+describe('pushFront()', () => {
+  it('should push item to front of array', () => {
+    expect(ar.pushFront([], 4)).toEqual([4]);
+  });
+  it('should push item to front of array', () => {
+    expect(ar.pushFront([1], 4)).toEqual([4,1]);
+  });
+});
+
