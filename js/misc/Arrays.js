@@ -12,23 +12,23 @@ export default {
   removeDuplicatesFromArray,
 
   pushFront,
-  InsertItemInArrayAtPosition,
-  GetArrayMin,
-  GetArrayMax,
-  GetArraySum,
-  GetArrayAverage,
-  ZipArrays,
+  insertItemInArrayAtPosition,
+  getArrayMin,
+  getArrayMax,
+  getArraySum,
+  getArrayAverage,
+  zipArrays,
   
-  CountAndPrintGreater,
-  ReplaceNegatives,
-  RemoveArrayItemsInPlace,
-  RemoveArrayItem,
-  PopFront,
-  MoveArrayForward,
-  ReverseArray,  
-  RepeatArraysItemsInPlace,
-  DoubleEachArrayValue,
-  SquareEachArrayValue
+  countAndPrintGreater,
+  replaceNegatives,
+  removeArrayItemsInPlace,
+  removeArrayItem,
+  popFront,
+  moveArrayForward,
+  reverseArray,  
+  repeatArraysItemsInPlace,
+  doubleEachArrayValue,
+  squareEachArrayValue
 
 }
 
@@ -64,7 +64,7 @@ export function removeDuplicatesFromArray(arr) {
         }
     }
     for(var i=0; i<arrremove.length; i++) {
-      RemoveArrayItemsInPlace(arr, arrremove[i],arrremove[i]);
+      removeArrayItemsInPlace(arr, arrremove[i],arrremove[i]);
     }
     return arr;
 }
@@ -76,14 +76,14 @@ export function removeDuplicatesFromArray(arr) {
 
 
 export function pushFront(arr,val) {
-    InsertItemInArrayAtPosition(arr,0,val);
+    insertItemInArrayAtPosition(arr,0,val);
     return arr;
 }
 // console.log([1,30,5,7], "PushFront:", PushFront([30,5,7], 1));
 // console.log("");
 
 
-export function InsertItemInArrayAtPosition(arr,index,val){
+export function insertItemInArrayAtPosition(arr,index,val){
     arr.push(0);
     for (var idx=arr.length-1; idx>index; idx--) {
         arr[idx]=arr[idx-1];
@@ -94,7 +94,7 @@ export function InsertItemInArrayAtPosition(arr,index,val){
 // console.log([0,1,2,30,5,7], "InsertItemInArrayAtPosition:", InsertItemInArrayAtPosition([0,1,30,5,7],2,2));
 // console.log("");
 
-export function GetArrayMin(x){
+export function getArrayMin(x){
     if (x.length==0) {
         return 0;
     }
@@ -110,7 +110,7 @@ export function GetArrayMin(x){
 // console.log("");
 
 
-export function GetArrayMax(x){
+export function getArrayMax(x){
     if (x.length==0) {
         return 0;
     }
@@ -126,7 +126,7 @@ export function GetArrayMax(x){
 // console.log("");
 
 
-export function GetArraySum(x){
+export function getArraySum(x){
   var sum = 0;
   for(var i=0; i<x.length; i++) {
     sum += x[i];
@@ -137,7 +137,7 @@ export function GetArraySum(x){
 // console.log("");
 
 
-export function GetArrayAverage(x){
+export function getArrayAverage(x){
     if (x.length==0) {
         return 0;
     }
@@ -152,7 +152,7 @@ export function GetArrayAverage(x){
 // console.log("");
 
 
-export function ZipArrays(arr1, arr2) {
+export function zipArrays(arr1, arr2) {
     var newobj = {};
     for (var i=0; i<arr1.length; i++) {
         newobj[arr1[i]] = arr2[i];
@@ -165,7 +165,7 @@ export function ZipArrays(arr1, arr2) {
 // console.log("");
 
 
-export function CountAndPrintGreater(arr, y) {
+export function countAndPrintGreater(arr, y) {
   var icount = 0;
   for (var idx =0; idx<arr.length; idx++) {
     if (arr[idx]>y) {
@@ -178,7 +178,7 @@ export function CountAndPrintGreater(arr, y) {
 // console.log("");
 
 
-export function ReplaceNegatives(arr) {
+export function replaceNegatives(arr) {
   var newarr = [];
   for (idx=0; idx<arr.length; idx++) {
     if (arr[idx]<0) {
@@ -194,7 +194,7 @@ export function ReplaceNegatives(arr) {
 // console.log("");
 
 
-export function RemoveArrayItemsInPlace(arr, start, end) {
+export function removeArrayItemsInPlace(arr, start, end) {
   // console.log(arr, start, end);
   var isource = end + 1;
   var itarget = start;
@@ -216,7 +216,7 @@ export function RemoveArrayItemsInPlace(arr, start, end) {
 // console.log("");
 
 
-export function RemoveArrayItem(arr,index) {
+export function removeArrayItem(arr,index) {
     RemoveArrayItemsInPlace(arr, index, index);
     return arr;
 }
@@ -224,7 +224,7 @@ export function RemoveArrayItem(arr,index) {
 // console.log("");
 
 
-export function PopFront(arr) {
+export function popFront(arr) {
     RemoveArrayItemsInPlace(arr, 0, 0);
     return arr;
 }
@@ -232,7 +232,7 @@ export function PopFront(arr) {
 // console.log("");
 
 
-export function MoveArrayForward(arr) {
+export function moveArrayForward(arr) {
   var newarr = [];
   for (var idx=0; idx<arr.length-1; idx++) {
     newarr.push(arr[idx+1]);
@@ -244,7 +244,7 @@ export function MoveArrayForward(arr) {
 // console.log("");
 
 
-export function ReverseArray(arr) {
+export function reverseArray(arr) {
   for (var idx=0; idx<arr.length/2; idx++)
   {
     var temp = arr[idx];
@@ -257,7 +257,7 @@ export function ReverseArray(arr) {
 // console.log("");
 
 
-export function RepeatArraysItemsInPlace(arr) {
+export function repeatArraysItemsInPlace(arr) {
   var newarr = [];
   for (var idx=0; idx<arr.length; idx++) {
     newarr.push(arr[idx]);
@@ -269,7 +269,7 @@ export function RepeatArraysItemsInPlace(arr) {
 // console.log("");
 
 
-export function DoubleEachArrayValue(arr){
+export function doubleEachArrayValue(arr){
   for (var idx=0; idx< arr.length; idx++) {
     arr[idx] *= 2;
   }
@@ -280,7 +280,7 @@ export function DoubleEachArrayValue(arr){
 // console.log("");
 
 
-export function SquareEachArrayValue(arr){
+export function squareEachArrayValue(arr){
   for (var idx=0; idx< arr.length; idx++) {
     arr[idx] *= arr[idx];
   }

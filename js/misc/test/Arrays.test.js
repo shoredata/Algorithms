@@ -31,3 +31,18 @@ describe('pushFront()', () => {
   });
 });
 
+
+describe('insertItemInArrayAtPosition()', () => {
+  it('should push item into array at position', () => {
+    expect(ar.insertItemInArrayAtPosition([], 0, 1)).toEqual([1]);
+  });
+  it('should push item into array at position', () => {
+    expect(ar.insertItemInArrayAtPosition([1], 1, 2)).toEqual([1,2]);
+  });
+  it('should push item into array at position', () => {
+    expect(ar.insertItemInArrayAtPosition([1], 0, 0)).toEqual([0,1]);
+  });
+  it('should push item into array at position', () => {
+    expect(ar.insertItemInArrayAtPosition([1,2,3], 3, 4)).toEqual([1,2,3,4]);
+  });
+});
