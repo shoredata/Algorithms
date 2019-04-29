@@ -45,8 +45,6 @@ export function getLargestArrayElement(x){
   }
   return max;
 }
-// console.log(30, "GetLargestArrayElement:", GetLargestArrayElement([1,30,5,7]));
-// console.log("");
 
 
 export function removeDuplicatesFromArray(arr) {
@@ -68,19 +66,12 @@ export function removeDuplicatesFromArray(arr) {
     }
     return arr;
 }
-// console.log([1,7,30,5], "RemoveDuplicatesFromArray:", RemoveDuplicatesFromArray([1,7, 30,5,7,1,7]));
-// console.log([1,7], "RemoveDuplicatesFromArray:", RemoveDuplicatesFromArray([1,7]));
-// console.log([1,7], "RemoveDuplicatesFromArray:", RemoveDuplicatesFromArray([1,7,1,1,1,]));
-// console.log([], "RemoveDuplicatesFromArray:", RemoveDuplicatesFromArray([]));
-// console.log("");
 
 
 export function pushFront(arr,val) {
     insertItemInArrayAtPosition(arr,0,val);
     return arr;
 }
-// console.log([1,30,5,7], "PushFront:", PushFront([30,5,7], 1));
-// console.log("");
 
 
 export function insertItemInArrayAtPosition(arr,index,val){
@@ -91,65 +82,52 @@ export function insertItemInArrayAtPosition(arr,index,val){
     arr[index] = val;
     return arr;
 }
-// console.log([0,1,2,30,5,7], "InsertItemInArrayAtPosition:", InsertItemInArrayAtPosition([0,1,30,5,7],2,2));
-// console.log("");
+
 
 export function getArrayMin(x){
-    if (x.length==0) {
-        return 0;
+  if (x.length==0 || x == null) {
+    return undefined;
+  }  
+  let min = x[0];
+  for(var i=1; i<x.length; i++) {
+    if (min > x[i]) {
+      min = x[i];
     }
-    let min = x[0];
-    for(var i=1; i<x.length; i++) {
-        if (min > x[i]) {
-            min = x[i];
-        }
-    }
-    return min;
+  }
+  return min;
 }
-// console.log(1, "GetArrayMin:", GetArrayMin([1,2,3]));
-// console.log("");
-
-
 export function getArrayMax(x){
-    if (x.length==0) {
-        return 0;
+  if (x.length==0 || x == null) {
+    return undefined;
+  }  
+  var max = x[0];
+  for(var i=1; i<x.length; i++) {
+    if (max < x[i]) {
+      max = x[i];
     }
-    var max = x[0];
-    for(var i=1; i<x.length; i++) {
-        if (max < x[i]) {
-            max = x[i];
-        }
-    }
-    return max;
+  }
+  return max;
 }
-// console.log(3, "GetArrayMax:", GetArrayMax([1,2,3]));
-// console.log("");
-
-
 export function getArraySum(x){
+  if (x.length==0 || x == null) {
+    return undefined;
+  }  
   var sum = 0;
   for(var i=0; i<x.length; i++) {
     sum += x[i];
   }
   return sum;
 }
-// console.log(6, "GetArraySum:", GetArraySum([1,2,3]));
-// console.log("");
-
-
 export function getArrayAverage(x){
-    if (x.length==0) {
-        return 0;
-    }
-    sum = 0;
-    for (var idx=0; idx<x.length; idx++) {
-        sum += x[idx];
-    }
-    return sum/x.length;
+  if (x.length==0 || x == null) {
+    return undefined;
+  }  
+  let sum = 0;
+  for (var idx=0; idx<x.length; idx++) {
+    sum += x[idx];
+  }
+  return sum/x.length;
 }
-// console.log(2, "GetArrayAverage:", GetArrayAverage([1,2,3]));
-// console.log(5,"GetArrayAverage:",  GetArrayAverage([2,5,8]));
-// console.log("");
 
 
 export function zipArrays(arr1, arr2) {
@@ -217,7 +195,7 @@ export function removeArrayItemsInPlace(arr, start, end) {
 
 
 export function removeArrayItem(arr,index) {
-    RemoveArrayItemsInPlace(arr, index, index);
+    removeArrayItemsInPlace(arr, index, index);
     return arr;
 }
 // console.log([1,30,5,7], 1, "RemoveArrayItem:", RemoveArrayItem([1,9,30,5,7], 1));
@@ -225,11 +203,13 @@ export function removeArrayItem(arr,index) {
 
 
 export function popFront(arr) {
-    RemoveArrayItemsInPlace(arr, 0, 0);
-    return arr;
+  if (arr.length==0 || arr == null) {
+    return undefined;
+  }
+  let retn = arr[0];
+  removeArrayItemsInPlace(arr, 0, 0);
+  return retn;
 }
-// console.log([1,30,5,7], "PopFront:", PopFront([0,1,30,5,7]));
-// console.log("");
 
 
 export function moveArrayForward(arr) {
