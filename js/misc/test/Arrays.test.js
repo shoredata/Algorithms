@@ -118,3 +118,29 @@ describe('zipArrays()', () => {
     expect(testc).toEqual({"fruit": "apple", "meat": "beef", "veg": "tomato"});
   });
 });
+
+
+describe('countGreater()', () => {
+  it('should return number if items in array greater than value', () => {
+    expect(ar.countGreater([1,2,3,4,5],3)).toEqual(2);
+  });
+});
+
+
+describe('replaceNegatives()', () => {
+  it('should replace all negative values in array with a 0', () => {
+    expect(ar.replaceNegatives([1,2,-3,-5,5])).toEqual([1,2,0,0,5]);
+  });
+});
+
+
+describe('removeArrayItemsInPlace()', () => {
+  it('emoty array should result in empty array', () => {
+    expect(ar.removeArrayItemsInPlace([],0,0)).toEqual([]);
+  });
+  it('should pop single item from front of array and result in empty array', () => {
+    let arr = [1];
+    ar.removeArrayItemsInPlace(arr,0,0);
+    expect(arr).toEqual([]);
+  });
+});

@@ -1,16 +1,8 @@
 // https://repl.it/@bearfish47x/Javascript-Algorithms-Arrays-v1
 
-// module.exports = {
-//   function getLargestArrayElement(),
-//   function removeDuplicatesFromArray(),
-//   function pushFront()
-// }
-
-
 export default { 
   getLargestArrayElement,
   removeDuplicatesFromArray,
-
   pushFront,
   insertItemInArrayAtPosition,
   getArrayMin,
@@ -18,8 +10,7 @@ export default {
   getArraySum,
   getArrayAverage,
   zipArrays,
-  
-  countAndPrintGreater,
+  countGreater,
   replaceNegatives,
   removeArrayItemsInPlace,
   removeArrayItem,
@@ -29,7 +20,6 @@ export default {
   repeatArraysItemsInPlace,
   doubleEachArrayValue,
   squareEachArrayValue
-
 }
 
 // console.log("ARRAYS ==============");
@@ -139,7 +129,7 @@ export function zipArrays(arr1, arr2) {
 }
 
 
-export function countAndPrintGreater(arr, y) {
+export function countGreater(arr, y) {
   var icount = 0;
   for (var idx =0; idx<arr.length; idx++) {
     if (arr[idx]>y) {
@@ -148,13 +138,11 @@ export function countAndPrintGreater(arr, y) {
   }
   return icount;
 }
-// console.log(3, "CountAndPrintGreater:", CountAndPrintGreater([1,2,3,4,5,6],3));
-// console.log("");
 
 
 export function replaceNegatives(arr) {
-  var newarr = [];
-  for (idx=0; idx<arr.length; idx++) {
+  let newarr = [];
+  for (let idx=0; idx<arr.length; idx++) {
     if (arr[idx]<0) {
       newarr.push(0);
     }
@@ -164,8 +152,7 @@ export function replaceNegatives(arr) {
   }
   return newarr;
 }
-// console.log([1,2,0,0,5],"ReplaceNegatives:", ReplaceNegatives( [1,2,-3,-5,5]));
-// console.log("");
+
 
 
 export function removeArrayItemsInPlace(arr, start, end) {
@@ -182,12 +169,6 @@ export function removeArrayItemsInPlace(arr, start, end) {
   }
   return arr;
 }
-// console.log([30], "RemoveArrayItemsInPlace:", RemoveArrayItemsInPlace([20,30],0,0));
-// console.log([20], "RemoveArrayItemsInPlace:", RemoveArrayItemsInPlace([20,30],1,1));
-// console.log([], "RemoveArrayItemsInPlace:", RemoveArrayItemsInPlace([20,30],0,1));
-// console.log([20,30,70], "RemoveArrayItemsInPlace:", RemoveArrayItemsInPlace([20,30,40,50,60,70],2,4));
-// console.log([20,30,40], "RemoveArrayItemsInPlace:", RemoveArrayItemsInPlace([20,30,40,70],3,3));
-// console.log("");
 
 
 export function removeArrayItem(arr,index) {
