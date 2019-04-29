@@ -137,10 +137,6 @@ export function zipArrays(arr1, arr2) {
     }
     return newobj;
 }
-// testa = ['fruit', 'veg', 'meat'];
-// testb = ['apple', 'tomato', 'beef'];
-// console.log("ZipArrays:", testa + " + " + testb + ":" ) + console.dir(ZipArrays(testa,testb));
-// console.log("");
 
 
 export function countAndPrintGreater(arr, y) {

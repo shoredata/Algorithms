@@ -108,3 +108,13 @@ describe('getArrayAverage()', () => {
     expect(ar.getArrayAverage([1,2,3,4,5])).toEqual(3);
   });
 });
+
+
+describe('zipArrays()', () => {
+  it('should return two arrays zipped', () => {
+    let testa = ['fruit', 'veg', 'meat'];
+    let testb = ['apple', 'tomato', 'beef'];
+    let testc = ar.zipArrays(testa,testb);
+    expect(testc).toEqual({"fruit": "apple", "meat": "beef", "veg": "tomato"});
+  });
+});
