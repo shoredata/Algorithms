@@ -144,3 +144,35 @@ describe('removeArrayItemsInPlace()', () => {
     expect(arr).toEqual([]);
   });
 });
+
+
+describe('removeArrayItem()', () => {
+  it('should remove only item from array', () => {
+    let arr = [1];
+    ar.removeArrayItem(arr,0);
+    expect(arr).toEqual([]);
+  });
+  it('should remove indicated item from array', () => {
+    let arr = [1,2,3];
+    ar.removeArrayItem(arr,1);
+    expect(arr).toEqual([1,3]);
+  });
+});
+
+
+describe('moveArrayForward()', () => {
+  it('should return empty array if sent empty array', () => {
+    let arr = [];
+    expect(ar.moveArrayForward(arr)).toEqual([]);
+  });
+  it('should return array with 0 at end and each item moved forward one index', () => {
+    let arr = [1];
+    expect(ar.moveArrayForward(arr)).toEqual([0]);
+  });
+  it('should return array with 0 at end and each item moved forward one index', () => {
+    let arr = [1,2,3,4,5];
+    expect(ar.moveArrayForward(arr)).toEqual([2,3,4,5,0]);
+  });
+});
+
+

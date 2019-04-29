@@ -175,8 +175,6 @@ export function removeArrayItem(arr,index) {
     removeArrayItemsInPlace(arr, index, index);
     return arr;
 }
-// console.log([1,30,5,7], 1, "RemoveArrayItem:", RemoveArrayItem([1,9,30,5,7], 1));
-// console.log("");
 
 
 export function popFront(arr) {
@@ -190,15 +188,19 @@ export function popFront(arr) {
 
 
 export function moveArrayForward(arr) {
-  var newarr = [];
-  for (var idx=0; idx<arr.length-1; idx++) {
+  if (arr.length==0) {
+    return [];
+  }
+  if (arr == null) {
+    return undefined;
+  }
+  let newarr = [];
+  for (let idx=0; idx<arr.length-1; idx++) {
     newarr.push(arr[idx+1]);
   }
   newarr.push(0);
   return newarr;
 }
-// console.log([2,3,0], "MoveArrayForward:", MoveArrayForward([1,2,3]));
-// console.log("");
 
 
 export function reverseArray(arr) {
