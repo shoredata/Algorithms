@@ -206,9 +206,28 @@ describe('repeatArraysItems()', () => {
     let arr3 = ar.repeatArraysItems(arr1);
     expect(arr3).toEqual(arr2);
   });
-  it('should repeat each item in array', () => {
+  it('should return empty array', () => {
     let arr1 = [], arr2 = [];
     let arr3 = ar.repeatArraysItems(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+});
+
+
+describe('doubleEachArrayValue()', () => {
+  it('should double each item in array', () => {
+    let arr1 = [1], arr2 = [2];
+    let arr3 = ar.doubleEachArrayValue(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should repeat each item in array', () => {
+    let arr1 = [1,2,3], arr2 = [2,4,6];
+    let arr3 = ar.doubleEachArrayValue(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should return empty array', () => {
+    let arr1 = [], arr2 = [];
+    let arr3 = ar.doubleEachArrayValue(arr1);
     expect(arr3).toEqual(arr2);
   });
 });
