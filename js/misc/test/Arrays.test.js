@@ -176,3 +176,20 @@ describe('moveArrayForward()', () => {
 });
 
 
+describe('reverseArray()', () => {
+  it('should reverse all items in array', () => {
+    let arr = [1];
+    ar.reverseArray(arr);
+    expect(arr).toEqual([1]);
+  });
+  it('should reverse all items in array', () => {
+    let arr = [1,2,3];
+    ar.reverseArray(arr);
+    expect(arr).toEqual([3,2,1]);
+  });
+  it('should return empty array', () => {
+    let arr = [];
+    ar.reverseArray(arr);
+    expect(arr).toEqual([]);
+  });
+});
