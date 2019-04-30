@@ -220,7 +220,7 @@ describe('doubleEachArrayValue()', () => {
     let arr3 = ar.doubleEachArrayValue(arr1);
     expect(arr3).toEqual(arr2);
   });
-  it('should repeat each item in array', () => {
+  it('should double each item in array', () => {
     let arr1 = [1,2,3], arr2 = [2,4,6];
     let arr3 = ar.doubleEachArrayValue(arr1);
     expect(arr3).toEqual(arr2);
@@ -228,6 +228,25 @@ describe('doubleEachArrayValue()', () => {
   it('should return empty array', () => {
     let arr1 = [], arr2 = [];
     let arr3 = ar.doubleEachArrayValue(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+});
+
+
+describe('squareEachArrayValue()', () => {
+  it('should square each item in array', () => {
+    let arr1 = [1], arr2 = [1];
+    let arr3 = ar.squareEachArrayValue(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should square each item in array', () => {
+    let arr1 = [1,2,3], arr2 = [1,4,9];
+    let arr3 = ar.squareEachArrayValue(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should return empty array', () => {
+    let arr1 = [], arr2 = [];
+    let arr3 = ar.squareEachArrayValue(arr1);
     expect(arr3).toEqual(arr2);
   });
 });
