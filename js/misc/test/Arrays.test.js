@@ -193,3 +193,22 @@ describe('reverseArray()', () => {
     expect(arr).toEqual([]);
   });
 });
+
+
+describe('repeatArraysItems()', () => {
+  it('should repeat each item in array', () => {
+    let arr1 = [1], arr2 = [1,1];
+    let arr3 = ar.repeatArraysItems(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should repeat each item in array', () => {
+    let arr1 = [1,2,3], arr2 = [1,1,2,2,3,3];
+    let arr3 = ar.repeatArraysItems(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+  it('should repeat each item in array', () => {
+    let arr1 = [], arr2 = [];
+    let arr3 = ar.repeatArraysItems(arr1);
+    expect(arr3).toEqual(arr2);
+  });
+});

@@ -17,7 +17,7 @@ export default {
   popFront,
   moveArrayForward,
   reverseArray,  
-  repeatArraysItemsInPlace,
+  repeatArraysItems,
   doubleEachArrayValue,
   squareEachArrayValue
 }
@@ -212,11 +212,9 @@ export function reverseArray(arr) {
   }
   return arr;
 }
-// console.log([3,2,1], "ReverseArray:", ReverseArray([1,2,3]));
-// console.log("");
 
 
-export function repeatArraysItemsInPlace(arr) {
+export function repeatArraysItems(arr) {
   var newarr = [];
   for (var idx=0; idx<arr.length; idx++) {
     newarr.push(arr[idx]);
@@ -224,8 +222,6 @@ export function repeatArraysItemsInPlace(arr) {
   }
   return newarr;
 }
-// console.log(['a','a',1,1,"Bob","Bob"], "RepeatArraysItemsInPlace:", RepeatArraysItemsInPlace(['a',1,"Bob"])); //['a','a',1,1,"Bob","Bob"]
-// console.log("");
 
 
 export function doubleEachArrayValue(arr){
