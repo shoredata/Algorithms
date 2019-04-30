@@ -230,9 +230,6 @@ export function doubleEachArrayValue(arr){
   }
    return arr;
 }
-// console.log([2,4,6], "DoubleEachArrayValue:", DoubleEachArrayValue([1,2,3]));
-// console.log([4,10,16], "DoubleEachArrayValue:", DoubleEachArrayValue([2,5,8]));
-// console.log("");
 
 
 export function squareEachArrayValue(arr){
@@ -241,6 +238,3 @@ export function squareEachArrayValue(arr){
   }
    return arr;
 }
-// console.log([1,4,9], "SquareEachArrayValue:", SquareEachArrayValue([1,2,3]));
-// console.log([4, 25, 64], "SquareEachArrayValue:", SquareEachArrayValue([2,5,8]));
-// console.log("");
