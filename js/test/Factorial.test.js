@@ -1,4 +1,4 @@
-import * as fact from '../Factorial';
+import * as fact from '../Integers/Factorial';
 
 describe('factorial', () => {
 
