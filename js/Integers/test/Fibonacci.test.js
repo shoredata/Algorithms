@@ -1,4 +1,4 @@
-import * as fib from '../Integers/Fibonacci';
+import * as fib from '../Fibonacci';
 
 describe('fibonacci()', () => {
 

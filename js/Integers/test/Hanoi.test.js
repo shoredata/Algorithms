@@ -1,4 +1,4 @@
-import * as han from '../Integers/Hanoi';
+import * as han from '../Hanoi';
 
 describe('hanoi()', () => {
 
