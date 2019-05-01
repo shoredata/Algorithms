@@ -22,17 +22,23 @@ describe('isIPValid()', () => {
 });
 
 
-
-// createIPList("25525511135");
-// IP Addresses from a string of numbers
-// Ex: Input : 25525511135
-//     Output : ['255.255.11.135', '255.255.111.35']
-
-
-
-
 describe('createIPList()', () => {
   it('returns an empty array if an empty string is sent', () => {
     expect(ip.createIPList("")).toEqual([]);
+  });
+  it('returns an empty array if string contianing too few (<4) chars is sent', () => {
+    expect(ip.createIPList("123")).toEqual([]);
+  });
+  it('returns an empty array if string contianing too many (>12) chars is sent', () => {
+    expect(ip.createIPList("1234567890123")).toEqual([]);
+  });
+  // it('returns an empty array if a string containing invalid chars is sent', () => {
+  //   expect(ip.createIPList("123A")).toEqual([]);
+  // });
+  it('returns an array of 1 or more addreesses if a string containing valid chars is sent', () => {
+    expect(ip.createIPList("1234")).toEqual(['1.2.3.4']);
+  });
+  it('returns an array of 1 or more addreesses if a string containing valid chars is sent', () => {
+    expect(ip.createIPList("25525511135")).toEqual(['255.255.11.135', '255.255.111.35']);
   });
 });

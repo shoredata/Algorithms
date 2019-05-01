@@ -13,7 +13,7 @@ export function createIPList(strnum) {
     // console.log("createIPList(" + strnum + ")");
     var addr = [];
     if (strnum.length>12 || strnum.length < 4) {
-        console.log("Invalid string of numbers");
+        // console.log("Invalid string of numbers: ", strnum);
         return [];
     }
 
