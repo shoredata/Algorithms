@@ -33,6 +33,6 @@ describe('isIPValid()', () => {
 
 describe('createIPList()', () => {
   it('returns an empty array if an empty string is sent', () => {
-    expect(ip.createIPList("")).toEqual([]]);
+    expect(ip.createIPList("")).toEqual([]);
   });
 });
