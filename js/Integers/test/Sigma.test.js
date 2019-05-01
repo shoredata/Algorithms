@@ -6,8 +6,9 @@ describe('sigma', () => {
     expect(sigma.sigma(-1)).toEqual(undefined); 
   });
 
-  it('sigma of 0 should be 0', () => {
+  it('sigma of 0 or 1 should be itself', () => {
     expect(sigma.sigma(0)).toEqual(0); 
+    expect(sigma.sigma(1)).toEqual(1); 
   });
 
   it('sigma of non-integer should be undefined', () => {
