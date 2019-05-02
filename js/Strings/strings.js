@@ -28,6 +28,8 @@ console.log(false, "PalindromeTestInPlace:", test2, PalindromeTestInPlace(test2)
 console.log("");
 
 
+dg.WvmMTM:i3r8A
+
 function GenerateStringOfChar(char, count) {
   var retn = "";
   for (var i=0; i<count; i++) {
@@ -54,13 +56,13 @@ console.log("");
 // \b assert position at a word boundary (^\w|\w$|\W\w|\w\W)
 // 1st Capturing Group (\w+)
 // \w+ matches any word character (equal to [a-zA-Z0-9_])
-// + Quantifier — Matches between one and unlimited times, as many times as possible, giving back as needed (greedy)
+// + Quantifier ï¿½ Matches between one and unlimited times, as many times as possible, giving back as needed (greedy)
 // '? matches the character ' literally (case sensitive)
-// ? Quantifier — Matches between zero and one times, as many times as possible, giving back as needed (greedy)
+// ? Quantifier ï¿½ Matches between zero and one times, as many times as possible, giving back as needed (greedy)
 // 2nd Capturing Group (\w+)?
-// ? Quantifier — Matches between zero and one times, as many times as possible, giving back as needed (greedy)
+// ? Quantifier ï¿½ Matches between zero and one times, as many times as possible, giving back as needed (greedy)
 // \w+ matches any word character (equal to [a-zA-Z0-9_])
-// + Quantifier — Matches between one and unlimited times, as many times as possible, giving back as needed (greedy)
+// + Quantifier ï¿½ Matches between one and unlimited times, as many times as possible, giving back as needed (greedy)
 // \b assert position at a word boundary (^\w|\w$|\W\w|\w\W)
 //  g matches the characters  g literally (case sensitive)
 // Global pattern flags
