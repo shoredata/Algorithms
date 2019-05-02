@@ -1,4 +1,4 @@
-function getPermutations(string) {
+export function getPermutations(string) {
     var results = [];
 
     if (string.length === 1) 
@@ -27,18 +27,4 @@ function getPermutations(string) {
     return results;
 }
 
-console.log();
-var permutation = getPermutations('YES');
-console.log("Total permutation: "+permutation.length);
-console.log(permutation);
-
-console.log
-var permutation = getPermutations('ABBA');
-console.log("Total permutation: "+permutation.length);
-console.log(permutation);
-
-console.log
-var permutation = getPermutations('ABCD');
-console.log("Total permutation: "+permutation.length);
-console.log(permutation);
 
