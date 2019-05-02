@@ -1,17 +1,17 @@
 // https://repl.it/@bearfish47x/Javascript-Algorithms-Strings-v1
 
 
-export function ReverseString(str) {
+export function reverseString(str) {
   newstr = ""
   for (var idx = str.length-1; idx>=0; idx--) {
     newstr += str[idx];
   }
   return newstr
 }
-export function PalindromeTestStrCopy(str) {
-  return ReverseString(str)==str;
+export function palindromeTestStrCopy(str) {
+  return reverseString(str)==str;
 }
-export function PalindromeTestInPlace(str) {
+export function palindromeTestInPlace(str) {
   for (var i=0; i< Math.floor(str.length/2); i++) {
     if (str[i] != str[str.length-1-i]) {
       return false;
@@ -21,16 +21,16 @@ export function PalindromeTestInPlace(str) {
 }
 // test1 = "abba"
 // test2="rabbit"
-// console.log(true, "PalindromeTestStrCopy:", test1, PalindromeTestStrCopy(test1))
-// console.log(false, "PalindromeTestStrCopy:", test2, PalindromeTestStrCopy(test2))
-// console.log(true, "PalindromeTestInPlace:", test1, PalindromeTestInPlace(test1))
-// console.log(false, "PalindromeTestInPlace:", test2, PalindromeTestInPlace(test2))
+// console.log(true, "palindromeTestStrCopy:", test1, palindromeTestStrCopy(test1))
+// console.log(false, "palindromeTestStrCopy:", test2, palindromeTestStrCopy(test2))
+// console.log(true, "palindromeTestInPlace:", test1, palindromeTestInPlace(test1))
+// console.log(false, "palindromeTestInPlace:", test2, palindromeTestInPlace(test2))
 // console.log("");
 
 
 // dg.WvmMTM:i3r8A
 
-export function GenerateStringOfChar(char, count) {
+export function generateStringOfChar(char, count) {
   var retn = "";
   for (var i=0; i<count; i++) {
     retn += char;    
@@ -40,13 +40,13 @@ export function GenerateStringOfChar(char, count) {
 
 //string to word array
 //given string with words, space, tabs, lfs return array of words
-export function StringToWordArray(string) {
+export function stringToWordArray(string) {
     //this regex also allows contractions
     var str = string.match(/\b(\w+)'?(\w+)?\b/g);
     console.log(str);
     return str;
 }
-// StringToWordArray("Sentence doesn't not have a tab\t here.\nIt also has a newline, as well as several periods.");
+// stringToWordArray("Sentence doesn't not have a tab\t here.\nIt also has a newline, as well as several periods.");
 // console.log("");
 
 // \b(\w+)'?(\w+)?\b g
@@ -71,21 +71,21 @@ export function StringToWordArray(string) {
 
 
 
-export function ReverseWordOrder(array){
-    console.log(StringToWordArray(array).reverse());
+export function reverseWordOrder(array){
+    console.log(stringToWordArray(array).reverse());
 }
-// ReverseWordOrder("Find a good string to test the StringToWordArray().reverse() functions on!");
+// reverseWordOrder("Find a good string to test the stringToWordArray().reverse() functions on!");
 // console.log("");
 
-export function FindLongestWord(string){
-    console.log("longest:", StringToWordArray(string).sort(function(a, b){return b.length - a.length})[0]);
+export function findLongestWord(string){
+    console.log("longest:", stringToWordArray(string).sort(function(a, b){return b.length - a.length})[0]);
 }
-// FindLongestWord("Find a good string to test the StringToWordArray().reverse() functions on!");
+// findLongestWord("Find a good string to test the stringToWordArray().reverse() functions on!");
 // console.log("");
 
 
-export function FindUniqueWords(string) {
-    var arr = StringToWordArray(string);
+export function findUniqueWords(string) {
+    var arr = stringToWordArray(string);
     var ret = {};
     for (var str in arr) {
         // console.log("a", arr[str]);
@@ -100,7 +100,7 @@ export function FindUniqueWords(string) {
     console.log(ret);
     return ret;
 }
-// FindUniqueWords("test test 1 2 3 a b c c hello, world.");
+// findUniqueWords("test test 1 2 3 a b c c hello, world.");
 // console.log("");
 
 
@@ -114,16 +114,16 @@ export function FindUniqueWords(string) {
 
 
 
-export function RotateChars(string, rotate=1){
+export function rotateChars(string, rotate=1){
     if (rotate==0){
         console.log(string);
     }
     else{
-        RotateChars(string.substring(1, string.length) + string[0], --rotate);
+        rotateChars(string.substring(1, string.length) + string[0], --rotate);
     }
 }
-// RotateChars("abc");
-// RotateChars("This is a good sentence to rotate on!! :)",5);
+// rotateChars("abc");
+// rotateChars("This is a good sentence to rotate on!! :)",5);
 // console.log("");
 
 
@@ -138,9 +138,9 @@ export function censor(string,array){
 // censor("You are a forehead in the ore rehost!", ["fore"]);
 
 
-export function CensorString(str,word) {
+export function censorString(str,word) {
   retn = "";
-  repl = GenerateStringOfChar('*', word.length);
+  repl = generateStringOfChar('*', word.length);
   // console.log(repl);
   for (i=0; i<str.length; i++) {
     teststr = ReturnSubstring(str,i,word.length);
@@ -159,7 +159,7 @@ export function CensorString(str,word) {
 // var source_string = "day.yad.Sunday is the shortest day of the week.day.d";
 // var target_string = "day";
 // console.log(source_string, ":");
-// console.log(CensorString(source_string, target_string));
+// console.log(censorString(source_string, target_string));
 
 
 
